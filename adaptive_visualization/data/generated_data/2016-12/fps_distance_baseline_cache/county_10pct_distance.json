@@ -1,0 +1,29 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_n_points": 716,
+  "baseline_source_sample_n_points": 72,
+  "min_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "viewport": {
+    "width": 1248,
+    "height": 896,
+    "padding": [
+      34.0,
+      34.0,
+      34.0,
+      34.0
+    ]
+  },
+  "updated_at": "2026-04-30T22:13:57.182791+00:00"
+}

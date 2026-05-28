@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "country",
+  "state": "",
+  "county": "",
+  "topology_region": "country",
+  "source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 59619,
+  "n_points": 596,
+  "equivalent_percentage": 0.9996813096496084,
+  "sample_path": "country/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "country/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "country/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.2103947946436167,
+    "bottleneck_h1": 0.5306142691498157,
+    "wasserstein_h0": 40.22128797076186,
+    "wasserstein_h1": 19.05361951947388
+  },
+  "updated_at": "2026-04-30T20:27:11.468604+00:00"
+}

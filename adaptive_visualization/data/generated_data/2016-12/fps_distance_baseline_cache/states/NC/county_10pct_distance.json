@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "zoom": "state",
+  "state": "NC",
+  "county": "",
+  "topology_region": "NC",
+  "source_signature": {
+    "rows": 970,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_min_pixel_distance": 35.608297831048375,
+  "source_min_pixel_distance": 35.608297831048375,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 970,
+  "n_points": 24,
+  "equivalent_percentage": 2.4742268041237114,
+  "sample_path": "states/NC/samples/county_10pct_distance.csv",
+  "reduced_h0_path": "states/NC/county_10pct_distance_h0.csv",
+  "reduced_h1_path": "states/NC/county_10pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.0670565001000059,
+    "bottleneck_h1": 0.11176014200958484,
+    "wasserstein_h0": 0.76425500918789,
+    "wasserstein_h1": 0.3997043816684551
+  },
+  "updated_at": "2026-05-21T07:00:14.161690+00:00"
+}

@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_20pct_distance",
+  "baseline_label": "County 20% distance",
+  "zoom": "state",
+  "state": "IL",
+  "county": "",
+  "topology_region": "IL",
+  "source_signature": {
+    "rows": 2920,
+    "first_id": "A-167322",
+    "last_id": "A-3455505"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 20,
+  "baseline_source_min_pixel_distance": 17.03787728020304,
+  "source_min_pixel_distance": 17.03787728020304,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 17.03787728020304,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 2920,
+  "n_points": 57,
+  "equivalent_percentage": 1.952054794520548,
+  "sample_path": "states/IL/samples/county_20pct_distance.csv",
+  "reduced_h0_path": "states/IL/county_20pct_distance_h0.csv",
+  "reduced_h1_path": "states/IL/county_20pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.037101326077753474,
+    "bottleneck_h1": 0.052692493244640703,
+    "wasserstein_h0": 0.4500604585976318,
+    "wasserstein_h1": 0.27089699056145955
+  },
+  "updated_at": "2026-05-21T06:59:23.994641+00:00"
+}

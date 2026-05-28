@@ -1,0 +1,231 @@
+{
+  "cache_version": "fps_order_exact_v1",
+  "source_original": {
+    "path": "original.csv",
+    "size_bytes": 22173591,
+    "mtime_ns": 1773449553024805500
+  },
+  "entries": {
+    "{\"county\": \"Mecklenburg_test\", \"source_signature\": {\"first_id\": \"A-3445392\", \"last_id\": \"A-3445960\", \"rows\": 80}, \"state\": \"NC\", \"zoom\": \"county\"}": {
+      "path": "county/NC/Mecklenburg_test/order.npy",
+      "zoom": "county",
+      "state": "NC",
+      "county": "Mecklenburg_test",
+      "source_signature": {
+        "rows": 80,
+        "first_id": "A-3445392",
+        "last_id": "A-3445960"
+      },
+      "n_points": 80,
+      "updated_at": "2026-04-21T06:43:12.053743+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-116115\", \"last_id\": \"A-3455486\", \"rows\": 6323}, \"state\": \"FL\", \"zoom\": \"state\"}": {
+      "path": "state/FL/order.npy",
+      "zoom": "state",
+      "state": "FL",
+      "county": "",
+      "source_signature": {
+        "rows": 6323,
+        "first_id": "A-116115",
+        "last_id": "A-3455486"
+      },
+      "n_points": 6323,
+      "updated_at": "2026-04-21T06:43:12.422933+00:00"
+    },
+    "{\"county\": \"Mecklenburg\", \"source_signature\": {\"first_id\": \"A-3445392\", \"last_id\": \"A-3455477\", \"rows\": 716}, \"state\": \"NC\", \"zoom\": \"county\"}": {
+      "path": "county/NC/Mecklenburg/order.npy",
+      "zoom": "county",
+      "state": "NC",
+      "county": "Mecklenburg",
+      "source_signature": {
+        "rows": 716,
+        "first_id": "A-3445392",
+        "last_id": "A-3455477"
+      },
+      "n_points": 716,
+      "updated_at": "2026-04-21T06:43:12.642069+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-5118\", \"last_id\": \"A-3529092\", \"rows\": 59619}, \"state\": \"\", \"zoom\": \"country\"}": {
+      "path": "country/order.npy",
+      "zoom": "country",
+      "state": "",
+      "county": "",
+      "source_signature": {
+        "rows": 59619,
+        "first_id": "A-5118",
+        "last_id": "A-3529092"
+      },
+      "n_points": 59619,
+      "updated_at": "2026-04-23T17:43:06.187622+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-3445392\", \"last_id\": \"A-3455477\", \"rows\": 970}, \"state\": \"NC\", \"zoom\": \"state\"}": {
+      "path": "state/NC/order.npy",
+      "zoom": "state",
+      "state": "NC",
+      "county": "",
+      "source_signature": {
+        "rows": 970,
+        "first_id": "A-3445392",
+        "last_id": "A-3455477"
+      },
+      "n_points": 970,
+      "updated_at": "2026-04-27T18:14:58.917020+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-228637\", \"last_id\": \"A-3455487\", \"rows\": 1373}, \"state\": \"VA\", \"zoom\": \"state\"}": {
+      "path": "state/VA/order.npy",
+      "zoom": "state",
+      "state": "VA",
+      "county": "",
+      "source_signature": {
+        "rows": 1373,
+        "first_id": "A-228637",
+        "last_id": "A-3455487"
+      },
+      "n_points": 1373,
+      "updated_at": "2026-04-29T20:55:22.813386+00:00"
+    },
+    "{\"county\": \"Anson\", \"source_signature\": {\"first_id\": \"A-3449098\", \"last_id\": \"A-3449239\", \"rows\": 3}, \"state\": \"NC\", \"zoom\": \"county\"}": {
+      "path": "county/NC/Anson/order.npy",
+      "zoom": "county",
+      "state": "NC",
+      "county": "Anson",
+      "source_signature": {
+        "rows": 3,
+        "first_id": "A-3449098",
+        "last_id": "A-3449239"
+      },
+      "n_points": 3,
+      "updated_at": "2026-04-29T21:18:25.763428+00:00"
+    },
+    "{\"county\": \"Orange\", \"source_signature\": {\"first_id\": \"A-116126\", \"last_id\": \"A-3455388\", \"rows\": 841}, \"state\": \"FL\", \"zoom\": \"county\"}": {
+      "path": "county/FL/Orange/order.npy",
+      "zoom": "county",
+      "state": "FL",
+      "county": "Orange",
+      "source_signature": {
+        "rows": 841,
+        "first_id": "A-116126",
+        "last_id": "A-3455388"
+      },
+      "n_points": 841,
+      "updated_at": "2026-05-01T00:41:29.815838+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-3427830\", \"last_id\": \"A-3526803\", \"rows\": 16}, \"state\": \"MT\", \"zoom\": \"state\"}": {
+      "path": "state/MT/order.npy",
+      "zoom": "state",
+      "state": "MT",
+      "county": "",
+      "source_signature": {
+        "rows": 16,
+        "first_id": "A-3427830",
+        "last_id": "A-3526803"
+      },
+      "n_points": 16,
+      "updated_at": "2026-05-19T19:35:28.790946+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-194328\", \"last_id\": \"A-3455490\", \"rows\": 1163}, \"state\": \"NJ\", \"zoom\": \"state\"}": {
+      "path": "state/NJ/order.npy",
+      "zoom": "state",
+      "state": "NJ",
+      "county": "",
+      "source_signature": {
+        "rows": 1163,
+        "first_id": "A-194328",
+        "last_id": "A-3455490"
+      },
+      "n_points": 1163,
+      "updated_at": "2026-05-21T00:06:08.341254+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511764\", \"rows\": 132}, \"state\": \"UT\", \"zoom\": \"state\"}": {
+      "path": "state/UT/order.npy",
+      "zoom": "state",
+      "state": "UT",
+      "county": "",
+      "source_signature": {
+        "rows": 132,
+        "first_id": "A-3511045",
+        "last_id": "A-3511764"
+      },
+      "n_points": 132,
+      "updated_at": "2026-05-21T00:08:31.893832+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 2920}, \"state\": \"IL\", \"zoom\": \"state\"}": {
+      "path": "state/IL/order.npy",
+      "zoom": "state",
+      "state": "IL",
+      "county": "",
+      "source_signature": {
+        "rows": 2920,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "n_points": 2920,
+      "updated_at": "2026-05-21T05:29:16.399965+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-3511044\", \"last_id\": \"A-3511765\", \"rows\": 429}, \"state\": \"AZ\", \"zoom\": \"state\"}": {
+      "path": "state/AZ/order.npy",
+      "zoom": "state",
+      "state": "AZ",
+      "county": "",
+      "source_signature": {
+        "rows": 429,
+        "first_id": "A-3511044",
+        "last_id": "A-3511765"
+      },
+      "n_points": 429,
+      "updated_at": "2026-05-21T05:51:40.011567+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-167970\", \"last_id\": \"A-3455312\", \"rows\": 290}, \"state\": \"IN\", \"zoom\": \"state\"}": {
+      "path": "state/IN/order.npy",
+      "zoom": "state",
+      "state": "IN",
+      "county": "",
+      "source_signature": {
+        "rows": 290,
+        "first_id": "A-167970",
+        "last_id": "A-3455312"
+      },
+      "n_points": 290,
+      "updated_at": "2026-05-21T06:59:14.730777+00:00"
+    },
+    "{\"county\": \"Loudoun\", \"source_signature\": {\"first_id\": \"A-228716\", \"last_id\": \"A-3454751\", \"rows\": 266}, \"state\": \"VA\", \"zoom\": \"county\"}": {
+      "path": "county/VA/Loudoun/order.npy",
+      "zoom": "county",
+      "state": "VA",
+      "county": "Loudoun",
+      "source_signature": {
+        "rows": 266,
+        "first_id": "A-228716",
+        "last_id": "A-3454751"
+      },
+      "n_points": 266,
+      "updated_at": "2026-05-21T07:00:51.254084+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-261164\", \"last_id\": \"A-3511708\", \"rows\": 8122}, \"state\": \"TX\", \"zoom\": \"state\"}": {
+      "path": "state/TX/order.npy",
+      "zoom": "state",
+      "state": "TX",
+      "county": "",
+      "source_signature": {
+        "rows": 8122,
+        "first_id": "A-261164",
+        "last_id": "A-3511708"
+      },
+      "n_points": 8122,
+      "updated_at": "2026-05-21T07:19:37.796177+00:00"
+    },
+    "{\"county\": \"\", \"source_signature\": {\"first_id\": \"A-167350\", \"last_id\": \"A-3455504\", \"rows\": 256}, \"state\": \"WI\", \"zoom\": \"state\"}": {
+      "path": "state/WI/order.npy",
+      "zoom": "state",
+      "state": "WI",
+      "county": "",
+      "source_signature": {
+        "rows": 256,
+        "first_id": "A-167350",
+        "last_id": "A-3455504"
+      },
+      "n_points": 256,
+      "updated_at": "2026-05-21T07:20:50.394864+00:00"
+    }
+  }
+}

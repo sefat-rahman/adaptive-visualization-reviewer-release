@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_5pct_distance",
+  "baseline_label": "County 5% distance",
+  "zoom": "state",
+  "state": "FL",
+  "county": "",
+  "topology_region": "FL",
+  "source_signature": {
+    "rows": 6323,
+    "first_id": "A-116115",
+    "last_id": "A-3455486"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 5,
+  "baseline_source_min_pixel_distance": 58.56785475748288,
+  "source_min_pixel_distance": 58.56785475748288,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 58.56785475748288,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 6323,
+  "n_points": 18,
+  "equivalent_percentage": 0.2846749960461806,
+  "sample_path": "states/FL/samples/county_5pct_distance.csv",
+  "reduced_h0_path": "states/FL/county_5pct_distance_h0.csv",
+  "reduced_h1_path": "states/FL/county_5pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.7595589481584466,
+    "bottleneck_h1": 0.09456295376602425,
+    "wasserstein_h0": 2.75899716827696,
+    "wasserstein_h1": 0.7433016397061747
+  },
+  "updated_at": "2026-04-30T20:31:41.887953+00:00"
+}

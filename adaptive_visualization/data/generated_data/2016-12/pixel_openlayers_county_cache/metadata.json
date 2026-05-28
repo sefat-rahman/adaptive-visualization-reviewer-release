@@ -1,0 +1,149 @@
+{
+  "cache_version": "openlayers_county_pixel_exact_circle_v2",
+  "sampling_mode": "pixel_occupancy_openlayers_county_exact_circle_fit_extent_dynamic",
+  "marker_radius_px": 4.2,
+  "marker_stroke_width_px": 1.2,
+  "min_center_distance_px": 9.6,
+  "boundary_filtering": "points_clipped_to_county_boundary",
+  "boundary_source": "county_boundary_cache_or_atlas",
+  "source_original": {
+    "path": "original.csv",
+    "size_bytes": 22173591,
+    "mtime_ns": 1773449553024805500
+  },
+  "counties": {
+    "w1246_h674_p34-34-34-34__NC__Mecklenburg": {
+      "path": "pixel_openlayers_county_cache/counties/w1246_h674_p34-34-34-34/NC/Mecklenburg.csv",
+      "state": "NC",
+      "county": "Mecklenburg",
+      "source_records": 717,
+      "bounded_records": 716,
+      "cached_records": 187,
+      "viewport": {
+        "width": 1246,
+        "height": 674,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-07T18:46:27.363540+00:00"
+    },
+    "w926_h496_p34-34-34-34__NC__Mecklenburg": {
+      "path": "pixel_openlayers_county_cache/counties/w926_h496_p34-34-34-34/NC/Mecklenburg.csv",
+      "state": "NC",
+      "county": "Mecklenburg",
+      "source_records": 717,
+      "bounded_records": 716,
+      "cached_records": 142,
+      "viewport": {
+        "width": 926,
+        "height": 496,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-19T19:20:02.214014+00:00"
+    },
+    "w1246_h674_p34-34-34-34__CO__Eagle": {
+      "path": "pixel_openlayers_county_cache/counties/w1246_h674_p34-34-34-34/CO/Eagle.csv",
+      "state": "CO",
+      "county": "Eagle",
+      "source_records": 14,
+      "bounded_records": 14,
+      "cached_records": 11,
+      "viewport": {
+        "width": 1246,
+        "height": 674,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-21T21:55:39.012843+00:00"
+    },
+    "w1246_h674_p34-34-34-34__IL__Cook": {
+      "path": "pixel_openlayers_county_cache/counties/w1246_h674_p34-34-34-34/IL/Cook.csv",
+      "state": "IL",
+      "county": "Cook",
+      "source_records": 851,
+      "bounded_records": 821,
+      "cached_records": 218,
+      "viewport": {
+        "width": 1246,
+        "height": 674,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-21T22:42:40.996776+00:00"
+    },
+    "w1246_h674_p34-34-34-34__UT__Salt Lake": {
+      "path": "pixel_openlayers_county_cache/counties/w1246_h674_p34-34-34-34/UT/Salt_Lake.csv",
+      "state": "UT",
+      "county": "Salt Lake",
+      "source_records": 82,
+      "bounded_records": 80,
+      "cached_records": 55,
+      "viewport": {
+        "width": 1246,
+        "height": 674,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-21T22:50:11.811193+00:00"
+    },
+    "w1246_h674_p34-34-34-34__CA__San Diego": {
+      "path": "pixel_openlayers_county_cache/counties/w1246_h674_p34-34-34-34/CA/San_Diego.csv",
+      "state": "CA",
+      "county": "San Diego",
+      "source_records": 1303,
+      "bounded_records": 1300,
+      "cached_records": 223,
+      "viewport": {
+        "width": 1246,
+        "height": 674,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-22T04:21:33.931184+00:00"
+    },
+    "w1248_h896_p34-34-34-34__NC__Mecklenburg": {
+      "path": "pixel_openlayers_county_cache/counties/w1248_h896_p34-34-34-34/NC/Mecklenburg.csv",
+      "state": "NC",
+      "county": "Mecklenburg",
+      "source_records": 717,
+      "bounded_records": 716,
+      "cached_records": 228,
+      "viewport": {
+        "width": 1248,
+        "height": 896,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-28T07:13:26.811117+00:00"
+    }
+  }
+}

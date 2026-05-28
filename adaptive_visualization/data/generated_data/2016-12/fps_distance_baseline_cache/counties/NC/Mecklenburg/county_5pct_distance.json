@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_5pct_distance",
+  "baseline_label": "County 5% distance",
+  "zoom": "county",
+  "state": "NC",
+  "county": "Mecklenburg",
+  "topology_region": "NC::Mecklenburg",
+  "source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 5,
+  "baseline_source_min_pixel_distance": 58.56785475748288,
+  "source_min_pixel_distance": 58.56785475748288,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 58.56785475748288,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 716,
+  "n_points": 36,
+  "equivalent_percentage": 5.027932960893855,
+  "sample_path": "counties/NC/Mecklenburg/samples/county_5pct_distance.csv",
+  "reduced_h0_path": "counties/NC/Mecklenburg/county_5pct_distance_h0.csv",
+  "reduced_h1_path": "counties/NC/Mecklenburg/county_5pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.000611999357125438,
+    "bottleneck_h1": 0.0004895475648928625,
+    "wasserstein_h0": 0.017129462055748515,
+    "wasserstein_h1": 0.006591480908868995
+  },
+  "updated_at": "2026-04-30T20:31:42.389011+00:00"
+}

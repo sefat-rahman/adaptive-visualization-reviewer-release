@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_20pct_distance",
+  "baseline_label": "County 20% distance",
+  "zoom": "state",
+  "state": "VA",
+  "county": "",
+  "topology_region": "VA",
+  "source_signature": {
+    "rows": 1373,
+    "first_id": "A-228637",
+    "last_id": "A-3455487"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 20,
+  "baseline_source_min_pixel_distance": 17.03787728020304,
+  "source_min_pixel_distance": 17.03787728020304,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 17.03787728020304,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 1373,
+  "n_points": 92,
+  "equivalent_percentage": 6.700655498907501,
+  "sample_path": "states/VA/samples/county_20pct_distance.csv",
+  "reduced_h0_path": "states/VA/county_20pct_distance_h0.csv",
+  "reduced_h1_path": "states/VA/county_20pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.012989417016250508,
+    "bottleneck_h1": 0.058080563021435966,
+    "wasserstein_h0": 0.5838325698787495,
+    "wasserstein_h1": 0.29940304252385475
+  },
+  "updated_at": "2026-05-21T07:00:37.839634+00:00"
+}

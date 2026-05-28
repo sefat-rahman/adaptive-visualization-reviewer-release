@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_20pct_distance",
+  "baseline_label": "County 20% distance",
+  "zoom": "state",
+  "state": "NJ",
+  "county": "",
+  "topology_region": "NJ",
+  "source_signature": {
+    "rows": 1163,
+    "first_id": "A-194328",
+    "last_id": "A-3455490"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 20,
+  "baseline_source_min_pixel_distance": 17.03787728020304,
+  "source_min_pixel_distance": 17.03787728020304,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 17.03787728020304,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 1163,
+  "n_points": 88,
+  "equivalent_percentage": 7.566638005159071,
+  "sample_path": "states/NJ/samples/county_20pct_distance.csv",
+  "reduced_h0_path": "states/NJ/county_20pct_distance_h0.csv",
+  "reduced_h1_path": "states/NJ/county_20pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.00314944265700191,
+    "bottleneck_h1": 0.00584141213268536,
+    "wasserstein_h0": 0.16715206969925198,
+    "wasserstein_h1": 0.07511607405580309
+  },
+  "updated_at": "2026-05-21T07:06:42.567546+00:00"
+}

@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_5pct_distance",
+  "baseline_label": "County 5% distance",
+  "zoom": "country",
+  "state": "",
+  "county": "",
+  "topology_region": "country",
+  "source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 5,
+  "baseline_source_min_pixel_distance": 58.56785475748288,
+  "source_min_pixel_distance": 58.56785475748288,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 58.56785475748288,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 59619,
+  "n_points": 77,
+  "equivalent_percentage": 0.12915345779030174,
+  "sample_path": "country/samples/county_5pct_distance.csv",
+  "reduced_h0_path": "country/county_5pct_distance_h0.csv",
+  "reduced_h1_path": "country/county_5pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 2.765009542008542,
+    "bottleneck_h1": 3.11963486819399,
+    "wasserstein_h0": 115.17785430298234,
+    "wasserstein_h1": 58.034122844386914
+  },
+  "updated_at": "2026-04-30T20:31:37.869207+00:00"
+}

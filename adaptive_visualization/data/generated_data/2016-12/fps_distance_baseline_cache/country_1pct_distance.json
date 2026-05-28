@@ -1,0 +1,29 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_n_points": 59619,
+  "baseline_source_sample_n_points": 596,
+  "min_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "viewport": {
+    "width": 1248,
+    "height": 896,
+    "padding": [
+      28.0,
+      28.0,
+      28.0,
+      28.0
+    ]
+  },
+  "updated_at": "2026-04-30T20:27:11.356249+00:00"
+}

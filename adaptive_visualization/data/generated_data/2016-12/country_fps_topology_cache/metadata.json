@@ -1,0 +1,64 @@
+{
+  "cache_version": "country_fps_topology_full_v3",
+  "metrics": [
+    "bottleneck_h0",
+    "bottleneck_h1",
+    "wasserstein_h0",
+    "wasserstein_h1"
+  ],
+  "baseline_percentage": 1,
+  "percentages": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    65,
+    70,
+    75,
+    80,
+    85,
+    90,
+    95,
+    100
+  ],
+  "source_original": {
+    "path": "original.csv",
+    "size_bytes": 22173591,
+    "mtime_ns": 1773449553024805500
+  },
+  "entries": {
+    "country": {
+      "path": "country/curve.csv",
+      "source_signature": {
+        "rows": 59619,
+        "first_id": "A-5118",
+        "last_id": "A-3529092"
+      },
+      "updated_at": "2026-04-24T17:58:38.091482+00:00"
+    }
+  }
+}
