@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "state",
+  "state": "UT",
+  "county": "",
+  "topology_region": "UT",
+  "source_signature": {
+    "rows": 132,
+    "first_id": "A-3511045",
+    "last_id": "A-3511764"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 132,
+  "n_points": 31,
+  "equivalent_percentage": 23.484848484848484,
+  "sample_path": "states/UT/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "states/UT/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "states/UT/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.01913627577300081,
+    "bottleneck_h1": 0.014660022738925535,
+    "wasserstein_h0": 0.08897144428562132,
+    "wasserstein_h1": 0.02935596266970853
+  },
+  "updated_at": "2026-05-28T22:13:13.212763+00:00"
+}

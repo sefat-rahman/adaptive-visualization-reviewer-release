@@ -144,6 +144,82 @@
         ]
       },
       "created_at": "2026-05-28T07:13:26.811117+00:00"
+    },
+    "w1248_h896_p34-34-34-34__FL__Hillsborough": {
+      "path": "pixel_openlayers_county_cache/counties/w1248_h896_p34-34-34-34/FL/Hillsborough.csv",
+      "state": "FL",
+      "county": "Hillsborough",
+      "source_records": 669,
+      "bounded_records": 639,
+      "cached_records": 192,
+      "viewport": {
+        "width": 1248,
+        "height": 896,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-28T22:14:01.734329+00:00"
+    },
+    "w1248_h896_p34-34-34-34__IL__Cook": {
+      "path": "pixel_openlayers_county_cache/counties/w1248_h896_p34-34-34-34/IL/Cook.csv",
+      "state": "IL",
+      "county": "Cook",
+      "source_records": 851,
+      "bounded_records": 821,
+      "cached_records": 275,
+      "viewport": {
+        "width": 1248,
+        "height": 896,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-28T22:14:42.804076+00:00"
+    },
+    "w1248_h896_p34-34-34-34__UT__Salt Lake": {
+      "path": "pixel_openlayers_county_cache/counties/w1248_h896_p34-34-34-34/UT/Salt_Lake.csv",
+      "state": "UT",
+      "county": "Salt Lake",
+      "source_records": 82,
+      "bounded_records": 80,
+      "cached_records": 58,
+      "viewport": {
+        "width": 1248,
+        "height": 896,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-28T22:16:16.514048+00:00"
+    },
+    "w1248_h896_p34-34-34-34__VA__Loudoun": {
+      "path": "pixel_openlayers_county_cache/counties/w1248_h896_p34-34-34-34/VA/Loudoun.csv",
+      "state": "VA",
+      "county": "Loudoun",
+      "source_records": 266,
+      "bounded_records": 266,
+      "cached_records": 134,
+      "viewport": {
+        "width": 1248,
+        "height": 896,
+        "padding": [
+          34,
+          34,
+          34,
+          34
+        ]
+      },
+      "created_at": "2026-05-28T22:16:32.817785+00:00"
     }
   }
 }

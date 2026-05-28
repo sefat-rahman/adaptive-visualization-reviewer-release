@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "state",
+  "state": "IL",
+  "county": "",
+  "topology_region": "IL",
+  "source_signature": {
+    "rows": 2920,
+    "first_id": "A-167322",
+    "last_id": "A-3455505"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 2920,
+  "n_points": 85,
+  "equivalent_percentage": 2.910958904109589,
+  "sample_path": "states/IL/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "states/IL/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "states/IL/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.011456040046750438,
+    "bottleneck_h1": 0.02626871534999673,
+    "wasserstein_h0": 0.2793328528267573,
+    "wasserstein_h1": 0.23709953683874044
+  },
+  "updated_at": "2026-05-28T22:11:19.399169+00:00"
+}

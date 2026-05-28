@@ -248,6 +248,786 @@
       },
       "cached_records": 358,
       "created_at": "2026-05-28T07:13:47.306096+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-3511044\", \"last_id\": \"A-3511765\", \"rows\": 429}, \"state\": \"AZ\", \"zoom\": \"state\"}": {
+      "path": "state/AZ/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "AZ",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 429,
+        "first_id": "A-3511044",
+        "last_id": "A-3511765"
+      },
+      "cached_records": 13,
+      "created_at": "2026-05-28T22:08:33.781689+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-3511044\", \"last_id\": \"A-3511765\", \"rows\": 429}, \"state\": \"AZ\", \"zoom\": \"state\"}": {
+      "path": "state/AZ/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "AZ",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 429,
+        "first_id": "A-3511044",
+        "last_id": "A-3511765"
+      },
+      "cached_records": 17,
+      "created_at": "2026-05-28T22:08:34.400134+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-3511044\", \"last_id\": \"A-3511765\", \"rows\": 429}, \"state\": \"AZ\", \"zoom\": \"state\"}": {
+      "path": "state/AZ/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "AZ",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 429,
+        "first_id": "A-3511044",
+        "last_id": "A-3511765"
+      },
+      "cached_records": 112,
+      "created_at": "2026-05-28T22:08:35.117125+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-3511044\", \"last_id\": \"A-3511765\", \"rows\": 429}, \"state\": \"AZ\", \"zoom\": \"state\"}": {
+      "path": "state/AZ/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "AZ",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 429,
+        "first_id": "A-3511044",
+        "last_id": "A-3511765"
+      },
+      "cached_records": 214,
+      "created_at": "2026-05-28T22:08:37.389609+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-3424838\", \"last_id\": \"A-3511767\", \"rows\": 199}, \"state\": \"CO\", \"zoom\": \"state\"}": {
+      "path": "state/CO/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "CO",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 199,
+        "first_id": "A-3424838",
+        "last_id": "A-3511767"
+      },
+      "cached_records": 6,
+      "created_at": "2026-05-28T22:08:46.742437+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-3424838\", \"last_id\": \"A-3511767\", \"rows\": 199}, \"state\": \"CO\", \"zoom\": \"state\"}": {
+      "path": "state/CO/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "CO",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 199,
+        "first_id": "A-3424838",
+        "last_id": "A-3511767"
+      },
+      "cached_records": 8,
+      "created_at": "2026-05-28T22:08:46.957545+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-3424838\", \"last_id\": \"A-3511767\", \"rows\": 199}, \"state\": \"CO\", \"zoom\": \"state\"}": {
+      "path": "state/CO/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "CO",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 199,
+        "first_id": "A-3424838",
+        "last_id": "A-3511767"
+      },
+      "cached_records": 52,
+      "created_at": "2026-05-28T22:08:47.149408+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-3424838\", \"last_id\": \"A-3511767\", \"rows\": 199}, \"state\": \"CO\", \"zoom\": \"state\"}": {
+      "path": "state/CO/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "CO",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 199,
+        "first_id": "A-3424838",
+        "last_id": "A-3511767"
+      },
+      "cached_records": 100,
+      "created_at": "2026-05-28T22:08:47.592724+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-146310\", \"last_id\": \"A-3455443\", \"rows\": 2282}, \"state\": \"GA\", \"zoom\": \"state\"}": {
+      "path": "state/GA/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "GA",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 2282,
+        "first_id": "A-146310",
+        "last_id": "A-3455443"
+      },
+      "cached_records": 68,
+      "created_at": "2026-05-28T22:09:59.772043+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-146310\", \"last_id\": \"A-3455443\", \"rows\": 2282}, \"state\": \"GA\", \"zoom\": \"state\"}": {
+      "path": "state/GA/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "GA",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 2282,
+        "first_id": "A-146310",
+        "last_id": "A-3455443"
+      },
+      "cached_records": 91,
+      "created_at": "2026-05-28T22:10:01.645629+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-146310\", \"last_id\": \"A-3455443\", \"rows\": 2282}, \"state\": \"GA\", \"zoom\": \"state\"}": {
+      "path": "state/GA/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "GA",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 2282,
+        "first_id": "A-146310",
+        "last_id": "A-3455443"
+      },
+      "cached_records": 593,
+      "created_at": "2026-05-28T22:10:04.236641+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-146310\", \"last_id\": \"A-3455443\", \"rows\": 2282}, \"state\": \"GA\", \"zoom\": \"state\"}": {
+      "path": "state/GA/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "GA",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 2282,
+        "first_id": "A-146310",
+        "last_id": "A-3455443"
+      },
+      "cached_records": 1141,
+      "created_at": "2026-05-28T22:10:14.779772+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 2920}, \"state\": \"IL\", \"zoom\": \"state\"}": {
+      "path": "state/IL/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "IL",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 2920,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 88,
+      "created_at": "2026-05-28T22:10:44.455001+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 2920}, \"state\": \"IL\", \"zoom\": \"state\"}": {
+      "path": "state/IL/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "IL",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 2920,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 117,
+      "created_at": "2026-05-28T22:10:47.099828+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 2920}, \"state\": \"IL\", \"zoom\": \"state\"}": {
+      "path": "state/IL/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "IL",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 2920,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 759,
+      "created_at": "2026-05-28T22:10:50.588662+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 2920}, \"state\": \"IL\", \"zoom\": \"state\"}": {
+      "path": "state/IL/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "IL",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 2920,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 1460,
+      "created_at": "2026-05-28T22:11:03.954965+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-160852\", \"last_id\": \"A-3427740\", \"rows\": 559}, \"state\": \"NE\", \"zoom\": \"state\"}": {
+      "path": "state/NE/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NE",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 559,
+        "first_id": "A-160852",
+        "last_id": "A-3427740"
+      },
+      "cached_records": 17,
+      "created_at": "2026-05-28T22:12:08.442483+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-160852\", \"last_id\": \"A-3427740\", \"rows\": 559}, \"state\": \"NE\", \"zoom\": \"state\"}": {
+      "path": "state/NE/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NE",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 559,
+        "first_id": "A-160852",
+        "last_id": "A-3427740"
+      },
+      "cached_records": 22,
+      "created_at": "2026-05-28T22:12:09.445385+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-160852\", \"last_id\": \"A-3427740\", \"rows\": 559}, \"state\": \"NE\", \"zoom\": \"state\"}": {
+      "path": "state/NE/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NE",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 559,
+        "first_id": "A-160852",
+        "last_id": "A-3427740"
+      },
+      "cached_records": 145,
+      "created_at": "2026-05-28T22:12:10.417785+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-160852\", \"last_id\": \"A-3427740\", \"rows\": 559}, \"state\": \"NE\", \"zoom\": \"state\"}": {
+      "path": "state/NE/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NE",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 559,
+        "first_id": "A-160852",
+        "last_id": "A-3427740"
+      },
+      "cached_records": 280,
+      "created_at": "2026-05-28T22:12:13.819333+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-194328\", \"last_id\": \"A-3455490\", \"rows\": 1163}, \"state\": \"NJ\", \"zoom\": \"state\"}": {
+      "path": "state/NJ/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NJ",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 1163,
+        "first_id": "A-194328",
+        "last_id": "A-3455490"
+      },
+      "cached_records": 35,
+      "created_at": "2026-05-28T22:12:36.379731+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-194328\", \"last_id\": \"A-3455490\", \"rows\": 1163}, \"state\": \"NJ\", \"zoom\": \"state\"}": {
+      "path": "state/NJ/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NJ",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 1163,
+        "first_id": "A-194328",
+        "last_id": "A-3455490"
+      },
+      "cached_records": 47,
+      "created_at": "2026-05-28T22:12:37.696858+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-194328\", \"last_id\": \"A-3455490\", \"rows\": 1163}, \"state\": \"NJ\", \"zoom\": \"state\"}": {
+      "path": "state/NJ/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NJ",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 1163,
+        "first_id": "A-194328",
+        "last_id": "A-3455490"
+      },
+      "cached_records": 302,
+      "created_at": "2026-05-28T22:12:39.264829+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-194328\", \"last_id\": \"A-3455490\", \"rows\": 1163}, \"state\": \"NJ\", \"zoom\": \"state\"}": {
+      "path": "state/NJ/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "NJ",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 1163,
+        "first_id": "A-194328",
+        "last_id": "A-3455490"
+      },
+      "cached_records": 582,
+      "created_at": "2026-05-28T22:12:46.647902+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-307167\", \"last_id\": \"A-3529071\", \"rows\": 203}, \"state\": \"OR\", \"zoom\": \"state\"}": {
+      "path": "state/OR/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "OR",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 203,
+        "first_id": "A-307167",
+        "last_id": "A-3529071"
+      },
+      "cached_records": 6,
+      "created_at": "2026-05-28T22:13:05.756602+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-307167\", \"last_id\": \"A-3529071\", \"rows\": 203}, \"state\": \"OR\", \"zoom\": \"state\"}": {
+      "path": "state/OR/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "OR",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 203,
+        "first_id": "A-307167",
+        "last_id": "A-3529071"
+      },
+      "cached_records": 8,
+      "created_at": "2026-05-28T22:13:05.963161+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-307167\", \"last_id\": \"A-3529071\", \"rows\": 203}, \"state\": \"OR\", \"zoom\": \"state\"}": {
+      "path": "state/OR/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "OR",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 203,
+        "first_id": "A-307167",
+        "last_id": "A-3529071"
+      },
+      "cached_records": 53,
+      "created_at": "2026-05-28T22:13:06.179768+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-307167\", \"last_id\": \"A-3529071\", \"rows\": 203}, \"state\": \"OR\", \"zoom\": \"state\"}": {
+      "path": "state/OR/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "OR",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 203,
+        "first_id": "A-307167",
+        "last_id": "A-3529071"
+      },
+      "cached_records": 102,
+      "created_at": "2026-05-28T22:13:06.728036+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511764\", \"rows\": 132}, \"state\": \"UT\", \"zoom\": \"state\"}": {
+      "path": "state/UT/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "UT",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 132,
+        "first_id": "A-3511045",
+        "last_id": "A-3511764"
+      },
+      "cached_records": 4,
+      "created_at": "2026-05-28T22:13:11.888679+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511764\", \"rows\": 132}, \"state\": \"UT\", \"zoom\": \"state\"}": {
+      "path": "state/UT/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "UT",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 132,
+        "first_id": "A-3511045",
+        "last_id": "A-3511764"
+      },
+      "cached_records": 5,
+      "created_at": "2026-05-28T22:13:12.012440+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511764\", \"rows\": 132}, \"state\": \"UT\", \"zoom\": \"state\"}": {
+      "path": "state/UT/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "UT",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 132,
+        "first_id": "A-3511045",
+        "last_id": "A-3511764"
+      },
+      "cached_records": 34,
+      "created_at": "2026-05-28T22:13:12.147062+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511764\", \"rows\": 132}, \"state\": \"UT\", \"zoom\": \"state\"}": {
+      "path": "state/UT/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "UT",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 132,
+        "first_id": "A-3511045",
+        "last_id": "A-3511764"
+      },
+      "cached_records": 66,
+      "created_at": "2026-05-28T22:13:12.391512+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-228637\", \"last_id\": \"A-3455487\", \"rows\": 1373}, \"state\": \"VA\", \"zoom\": \"state\"}": {
+      "path": "state/VA/random__retain3.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "VA",
+      "county": "",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 1373,
+        "first_id": "A-228637",
+        "last_id": "A-3455487"
+      },
+      "cached_records": 41,
+      "created_at": "2026-05-28T22:13:28.714369+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-228637\", \"last_id\": \"A-3455487\", \"rows\": 1373}, \"state\": \"VA\", \"zoom\": \"state\"}": {
+      "path": "state/VA/random__retain4.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "VA",
+      "county": "",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 1373,
+        "first_id": "A-228637",
+        "last_id": "A-3455487"
+      },
+      "cached_records": 55,
+      "created_at": "2026-05-28T22:13:30.147263+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-228637\", \"last_id\": \"A-3455487\", \"rows\": 1373}, \"state\": \"VA\", \"zoom\": \"state\"}": {
+      "path": "state/VA/random__retain26.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "VA",
+      "county": "",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 1373,
+        "first_id": "A-228637",
+        "last_id": "A-3455487"
+      },
+      "cached_records": 357,
+      "created_at": "2026-05-28T22:13:31.914663+00:00"
+    },
+    "{\"county\": \"\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-228637\", \"last_id\": \"A-3455487\", \"rows\": 1373}, \"state\": \"VA\", \"zoom\": \"state\"}": {
+      "path": "state/VA/random__retain50.csv",
+      "method": "random",
+      "zoom": "state",
+      "state": "VA",
+      "county": "",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 1373,
+        "first_id": "A-228637",
+        "last_id": "A-3455487"
+      },
+      "cached_records": 686,
+      "created_at": "2026-05-28T22:13:39.488215+00:00"
+    },
+    "{\"county\": \"Hillsborough\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-116119\", \"last_id\": \"A-3455444\", \"rows\": 639}, \"state\": \"FL\", \"zoom\": \"county\"}": {
+      "path": "county/FL/Hillsborough/random__retain3.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "FL",
+      "county": "Hillsborough",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 639,
+        "first_id": "A-116119",
+        "last_id": "A-3455444"
+      },
+      "cached_records": 19,
+      "created_at": "2026-05-28T22:14:06.946565+00:00"
+    },
+    "{\"county\": \"Hillsborough\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-116119\", \"last_id\": \"A-3455444\", \"rows\": 639}, \"state\": \"FL\", \"zoom\": \"county\"}": {
+      "path": "county/FL/Hillsborough/random__retain4.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "FL",
+      "county": "Hillsborough",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 639,
+        "first_id": "A-116119",
+        "last_id": "A-3455444"
+      },
+      "cached_records": 26,
+      "created_at": "2026-05-28T22:14:08.665090+00:00"
+    },
+    "{\"county\": \"Hillsborough\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-116119\", \"last_id\": \"A-3455444\", \"rows\": 639}, \"state\": \"FL\", \"zoom\": \"county\"}": {
+      "path": "county/FL/Hillsborough/random__retain26.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "FL",
+      "county": "Hillsborough",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 639,
+        "first_id": "A-116119",
+        "last_id": "A-3455444"
+      },
+      "cached_records": 166,
+      "created_at": "2026-05-28T22:14:10.525631+00:00"
+    },
+    "{\"county\": \"Hillsborough\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-116119\", \"last_id\": \"A-3455444\", \"rows\": 639}, \"state\": \"FL\", \"zoom\": \"county\"}": {
+      "path": "county/FL/Hillsborough/random__retain50.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "FL",
+      "county": "Hillsborough",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 639,
+        "first_id": "A-116119",
+        "last_id": "A-3455444"
+      },
+      "cached_records": 320,
+      "created_at": "2026-05-28T22:14:15.144183+00:00"
+    },
+    "{\"county\": \"Cook\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 821}, \"state\": \"IL\", \"zoom\": \"county\"}": {
+      "path": "county/IL/Cook/random__retain3.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "IL",
+      "county": "Cook",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 821,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 25,
+      "created_at": "2026-05-28T22:14:50.738997+00:00"
+    },
+    "{\"county\": \"Cook\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 821}, \"state\": \"IL\", \"zoom\": \"county\"}": {
+      "path": "county/IL/Cook/random__retain4.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "IL",
+      "county": "Cook",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 821,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 33,
+      "created_at": "2026-05-28T22:14:52.876511+00:00"
+    },
+    "{\"county\": \"Cook\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 821}, \"state\": \"IL\", \"zoom\": \"county\"}": {
+      "path": "county/IL/Cook/random__retain26.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "IL",
+      "county": "Cook",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 821,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 213,
+      "created_at": "2026-05-28T22:14:55.422517+00:00"
+    },
+    "{\"county\": \"Cook\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-167322\", \"last_id\": \"A-3455505\", \"rows\": 821}, \"state\": \"IL\", \"zoom\": \"county\"}": {
+      "path": "county/IL/Cook/random__retain50.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "IL",
+      "county": "Cook",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 821,
+        "first_id": "A-167322",
+        "last_id": "A-3455505"
+      },
+      "cached_records": 410,
+      "created_at": "2026-05-28T22:15:02.230524+00:00"
+    },
+    "{\"county\": \"Salt Lake\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511760\", \"rows\": 80}, \"state\": \"UT\", \"zoom\": \"county\"}": {
+      "path": "county/UT/Salt_Lake/random__retain3.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "UT",
+      "county": "Salt Lake",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 80,
+        "first_id": "A-3511045",
+        "last_id": "A-3511760"
+      },
+      "cached_records": 2,
+      "created_at": "2026-05-28T22:16:17.411709+00:00"
+    },
+    "{\"county\": \"Salt Lake\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511760\", \"rows\": 80}, \"state\": \"UT\", \"zoom\": \"county\"}": {
+      "path": "county/UT/Salt_Lake/random__retain4.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "UT",
+      "county": "Salt Lake",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 80,
+        "first_id": "A-3511045",
+        "last_id": "A-3511760"
+      },
+      "cached_records": 3,
+      "created_at": "2026-05-28T22:16:18.277603+00:00"
+    },
+    "{\"county\": \"Salt Lake\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511760\", \"rows\": 80}, \"state\": \"UT\", \"zoom\": \"county\"}": {
+      "path": "county/UT/Salt_Lake/random__retain26.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "UT",
+      "county": "Salt Lake",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 80,
+        "first_id": "A-3511045",
+        "last_id": "A-3511760"
+      },
+      "cached_records": 21,
+      "created_at": "2026-05-28T22:16:19.196059+00:00"
+    },
+    "{\"county\": \"Salt Lake\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-3511045\", \"last_id\": \"A-3511760\", \"rows\": 80}, \"state\": \"UT\", \"zoom\": \"county\"}": {
+      "path": "county/UT/Salt_Lake/random__retain50.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "UT",
+      "county": "Salt Lake",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 80,
+        "first_id": "A-3511045",
+        "last_id": "A-3511760"
+      },
+      "cached_records": 40,
+      "created_at": "2026-05-28T22:16:20.015298+00:00"
+    },
+    "{\"county\": \"Loudoun\", \"method\": \"random\", \"retain_percentage\": 3, \"source_signature\": {\"first_id\": \"A-228716\", \"last_id\": \"A-3454751\", \"rows\": 266}, \"state\": \"VA\", \"zoom\": \"county\"}": {
+      "path": "county/VA/Loudoun/random__retain3.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "VA",
+      "county": "Loudoun",
+      "retain_percentage": 3,
+      "source_signature": {
+        "rows": 266,
+        "first_id": "A-228716",
+        "last_id": "A-3454751"
+      },
+      "cached_records": 8,
+      "created_at": "2026-05-28T22:16:35.384317+00:00"
+    },
+    "{\"county\": \"Loudoun\", \"method\": \"random\", \"retain_percentage\": 4, \"source_signature\": {\"first_id\": \"A-228716\", \"last_id\": \"A-3454751\", \"rows\": 266}, \"state\": \"VA\", \"zoom\": \"county\"}": {
+      "path": "county/VA/Loudoun/random__retain4.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "VA",
+      "county": "Loudoun",
+      "retain_percentage": 4,
+      "source_signature": {
+        "rows": 266,
+        "first_id": "A-228716",
+        "last_id": "A-3454751"
+      },
+      "cached_records": 11,
+      "created_at": "2026-05-28T22:16:36.619674+00:00"
+    },
+    "{\"county\": \"Loudoun\", \"method\": \"random\", \"retain_percentage\": 26, \"source_signature\": {\"first_id\": \"A-228716\", \"last_id\": \"A-3454751\", \"rows\": 266}, \"state\": \"VA\", \"zoom\": \"county\"}": {
+      "path": "county/VA/Loudoun/random__retain26.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "VA",
+      "county": "Loudoun",
+      "retain_percentage": 26,
+      "source_signature": {
+        "rows": 266,
+        "first_id": "A-228716",
+        "last_id": "A-3454751"
+      },
+      "cached_records": 69,
+      "created_at": "2026-05-28T22:16:37.757414+00:00"
+    },
+    "{\"county\": \"Loudoun\", \"method\": \"random\", \"retain_percentage\": 50, \"source_signature\": {\"first_id\": \"A-228716\", \"last_id\": \"A-3454751\", \"rows\": 266}, \"state\": \"VA\", \"zoom\": \"county\"}": {
+      "path": "county/VA/Loudoun/random__retain50.csv",
+      "method": "random",
+      "zoom": "county",
+      "state": "VA",
+      "county": "Loudoun",
+      "retain_percentage": 50,
+      "source_signature": {
+        "rows": 266,
+        "first_id": "A-228716",
+        "last_id": "A-3454751"
+      },
+      "cached_records": 133,
+      "created_at": "2026-05-28T22:16:39.490234+00:00"
     }
   }
 }

@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "state",
+  "state": "AZ",
+  "county": "",
+  "topology_region": "AZ",
+  "source_signature": {
+    "rows": 429,
+    "first_id": "A-3511044",
+    "last_id": "A-3511765"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 429,
+  "n_points": 78,
+  "equivalent_percentage": 18.181818181818183,
+  "sample_path": "states/AZ/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "states/AZ/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "states/AZ/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.02237744961699928,
+    "bottleneck_h1": 0.009745194350027044,
+    "wasserstein_h0": 0.2337616032823917,
+    "wasserstein_h1": 0.09479558326114117
+  },
+  "updated_at": "2026-05-28T22:08:41.916524+00:00"
+}

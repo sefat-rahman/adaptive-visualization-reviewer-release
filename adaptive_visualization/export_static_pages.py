@@ -23,7 +23,7 @@ PROJECT_ROOT = PACKAGE_DIR.parent
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 
-from adaptive_visualization.app import app, configure
+from adaptive_visualization.app import app, configure, _repo
 from adaptive_visualization.paths import DEFAULT_DATASET_DIR, MODULE_DIR, resolve_data_dir
 
 
@@ -36,12 +36,6 @@ VIEWPORT_KEYS = {
     "padding_left_px",
 }
 
-STATIC_SCOPES = [
-    {"zoom": "country", "state": "", "county": ""},
-    {"zoom": "state", "state": "FL", "county": ""},
-    {"zoom": "state", "state": "NC", "county": ""},
-    {"zoom": "county", "state": "NC", "county": "Mecklenburg"},
-]
 RANDOM_RETAIN_PERCENTAGES = [3, 4, 26, 50]
 FPS_THRESHOLDS = [0.25, 0.50, 0.75]
 FPS_BASELINES_BY_ZOOM = {
@@ -220,6 +214,7 @@ def main() -> None:
     (output_dir / "data" / "api").mkdir(parents=True, exist_ok=True)
 
     client = app.test_client()
+    scopes = build_static_scopes()
     source_data_label = str(data_dir)
     try:
         source_data_label = data_dir.relative_to(MODULE_DIR).as_posix()
@@ -259,14 +254,24 @@ def main() -> None:
     ]:
         add_snapshot(boundary_path)
 
-    for state in ["FL", "NC"]:
+    label_states = sorted({
+        scope["state"]
+        for scope in scopes
+        if scope["state"] and scope["zoom"] in {"state", "county"}
+    })
+    for state in label_states:
         add_snapshot("/api/labels/counties", {"state": state})
-    add_snapshot("/api/boundaries/county", {"state": "NC", "county": "Mecklenburg"})
+    for scope in scopes:
+        if scope["zoom"] == "county":
+            add_snapshot(
+                "/api/boundaries/county",
+                {"state": scope["state"], "county": scope["county"]},
+            )
 
-    for scope in STATIC_SCOPES:
+    for scope in scopes:
         add_scope_snapshots(add_snapshot, scope)
 
-    for scope in STATIC_SCOPES:
+    for scope in scopes:
         if scope["zoom"] == "country":
             continue
         add_snapshot(
@@ -291,6 +296,23 @@ def main() -> None:
 
     print(f"Static GitHub Pages export written to {output_dir}")
     print(f"Snapshots: {manifest['route_count']}")
+    print(f"Scopes: {len(scopes)}")
+
+
+def build_static_scopes() -> list[dict[str, str]]:
+    """Export country plus every state/county with saved FPS-threshold data."""
+    coverage = _repo().get_fps_threshold_coverage()
+    scopes: list[dict[str, str]] = [{"zoom": "country", "state": "", "county": ""}]
+    scopes.extend(
+        {"zoom": "state", "state": state, "county": ""}
+        for state in coverage.get("states", [])
+    )
+    for state, counties in coverage.get("counties", {}).items():
+        scopes.extend(
+            {"zoom": "county", "state": state, "county": county}
+            for county in counties
+        )
+    return scopes
 
 
 def add_scope_snapshots(add_snapshot, scope: dict[str, str]) -> None:

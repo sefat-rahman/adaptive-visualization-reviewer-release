@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "state",
+  "state": "CO",
+  "county": "",
+  "topology_region": "CO",
+  "source_signature": {
+    "rows": 199,
+    "first_id": "A-3424838",
+    "last_id": "A-3511767"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 199,
+  "n_points": 48,
+  "equivalent_percentage": 24.120603015075375,
+  "sample_path": "states/CO/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "states/CO/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "states/CO/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.012547994123998249,
+    "bottleneck_h1": 0.018504323767464782,
+    "wasserstein_h0": 0.11861592573587132,
+    "wasserstein_h1": 0.0423816515879626
+  },
+  "updated_at": "2026-05-28T22:08:48.924300+00:00"
+}

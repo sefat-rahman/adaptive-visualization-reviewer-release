@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "state",
+  "state": "GA",
+  "county": "",
+  "topology_region": "GA",
+  "source_signature": {
+    "rows": 2282,
+    "first_id": "A-146310",
+    "last_id": "A-3455443"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 2282,
+  "n_points": 133,
+  "equivalent_percentage": 5.828220858895705,
+  "sample_path": "states/GA/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "states/GA/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "states/GA/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.008678255696500034,
+    "bottleneck_h1": 0.017071072449612066,
+    "wasserstein_h0": 0.2870371402194976,
+    "wasserstein_h1": 0.17981829441725744
+  },
+  "updated_at": "2026-05-28T22:10:26.455305+00:00"
+}

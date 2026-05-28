@@ -51,7 +51,8 @@ http://127.0.0.1:8060/
 ## GitHub Pages Static Demo
 
 The `pages/` folder is a static export for reviewers. It uses precomputed JSON
-snapshots and does not run Flask or Python in the browser.
+snapshots for every state/county currently available in the saved FPS-threshold
+cache and does not run Flask or Python in the browser.
 
 To refresh the static export locally:
 
@@ -68,9 +69,9 @@ pages/
 to GitHub Pages, for example through a `gh-pages` branch or a GitHub Pages
 Action that uploads `adaptive_visualization/pages` as the artifact.
 
-The static demo intentionally supports only bundled precomputed snapshots. To
-generate additional state/county FPS-threshold data, clone the repository and
-run the local dashboard with `python run_dashboard.py`.
+The static demo intentionally supports only bundled precomputed snapshots. If
+new state/county FPS-threshold data is generated later, rerun
+`python export_static_pages.py` before copying/publishing the folder again.
 
 ## Runtime Layout
 
