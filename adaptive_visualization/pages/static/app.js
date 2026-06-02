@@ -52,6 +52,13 @@ const REGION_COLORS = {
     innerStroke: 'rgba(79, 129, 189, 0.75)',
     hoverFill: 'rgba(255, 255, 255, 0.06)',
     hoverStroke: '#0d47a1',
+    precomputedFill: 'rgba(21, 101, 192, 0.13)',
+    precomputedCountyFill: 'rgba(21, 101, 192, 0.18)',
+    precomputedStroke: '#0d47a1',
+    buttonBg: 'rgba(21, 101, 192, 0.14)',
+    buttonHoverBg: 'rgba(21, 101, 192, 0.22)',
+    buttonBorder: 'rgba(21, 101, 192, 0.42)',
+    buttonText: '#0d47a1',
   },
   pixel: {
     fill: 'rgba(226, 224, 239, 0.64)',
@@ -59,6 +66,13 @@ const REGION_COLORS = {
     innerStroke: 'rgba(111, 104, 160, 0.56)',
     hoverFill: 'rgba(111, 104, 160, 0.10)',
     hoverStroke: '#54507c',
+    precomputedFill: 'rgba(111, 104, 160, 0.16)',
+    precomputedCountyFill: 'rgba(111, 104, 160, 0.22)',
+    precomputedStroke: '#48436e',
+    buttonBg: 'rgba(111, 104, 160, 0.16)',
+    buttonHoverBg: 'rgba(111, 104, 160, 0.25)',
+    buttonBorder: 'rgba(111, 104, 160, 0.46)',
+    buttonText: '#48436e',
   },
   fps_threshold: {
     fill: 'rgba(210, 234, 214, 0.66)',
@@ -66,6 +80,13 @@ const REGION_COLORS = {
     innerStroke: 'rgba(46, 125, 50, 0.58)',
     hoverFill: 'rgba(46, 125, 50, 0.10)',
     hoverStroke: '#1b5e20',
+    precomputedFill: 'rgba(46, 125, 50, 0.15)',
+    precomputedCountyFill: 'rgba(46, 125, 50, 0.21)',
+    precomputedStroke: '#1b5e20',
+    buttonBg: 'rgba(46, 125, 50, 0.16)',
+    buttonHoverBg: 'rgba(46, 125, 50, 0.25)',
+    buttonBorder: 'rgba(46, 125, 50, 0.44)',
+    buttonText: '#1b5e20',
   },
   random: {
     fill: 'rgba(238, 221, 214, 0.62)',
@@ -73,6 +94,13 @@ const REGION_COLORS = {
     innerStroke: 'rgba(154, 74, 49, 0.58)',
     hoverFill: 'rgba(154, 74, 49, 0.10)',
     hoverStroke: '#743724',
+    precomputedFill: 'rgba(154, 74, 49, 0.15)',
+    precomputedCountyFill: 'rgba(154, 74, 49, 0.22)',
+    precomputedStroke: '#743724',
+    buttonBg: 'rgba(154, 74, 49, 0.16)',
+    buttonHoverBg: 'rgba(154, 74, 49, 0.25)',
+    buttonBorder: 'rgba(154, 74, 49, 0.44)',
+    buttonText: '#743724',
   },
 };
 const METHOD_LABELS = {
@@ -647,16 +675,16 @@ function getRegionStyle(role, method) {
 
   if (role === 'precomputed-state') {
     regionStyleCache[styleKey] = new ol.style.Style({
-      fill: new ol.style.Fill({ color: colors.hoverFill }),
-      stroke: new ol.style.Stroke({ color: colors.hoverStroke, width: 3 }),
+      fill: new ol.style.Fill({ color: colors.precomputedFill || colors.hoverFill }),
+      stroke: new ol.style.Stroke({ color: colors.precomputedStroke || colors.hoverStroke, width: 3.15 }),
     });
     return regionStyleCache[styleKey];
   }
 
   if (role === 'precomputed-county') {
     regionStyleCache[styleKey] = new ol.style.Style({
-      fill: new ol.style.Fill({ color: 'rgba(0, 0, 0, 0)' }),
-      stroke: new ol.style.Stroke({ color: colors.hoverStroke, width: 2.45 }),
+      fill: new ol.style.Fill({ color: colors.precomputedCountyFill || colors.hoverFill }),
+      stroke: new ol.style.Stroke({ color: colors.precomputedStroke || colors.hoverStroke, width: 3 }),
     });
     return regionStyleCache[styleKey];
   }
@@ -882,9 +910,15 @@ function updatePrecomputeToggle() {
   const scopeLabel = appState.zoom === 'country' ? 'states' : 'counties';
   const actionLabel = appState.showPrecomputedHighlights ? 'Hide' : 'Show';
   const methodLabel = METHOD_LABELS[appState.method] || appState.method;
+  const colors = REGION_COLORS[appState.method] || REGION_COLORS.default;
   button.textContent = `${actionLabel} precomputed ${scopeLabel}`;
   button.title = `${methodLabel} precomputed ${scopeLabel} bundled in this viewer.`;
   button.setAttribute('aria-pressed', String(appState.showPrecomputedHighlights));
+  button.style.setProperty('--precompute-bg', colors.buttonBg || colors.precomputedFill || colors.hoverFill);
+  button.style.setProperty('--precompute-hover-bg', colors.buttonHoverBg || colors.precomputedCountyFill || colors.hoverFill);
+  button.style.setProperty('--precompute-border', colors.buttonBorder || colors.innerStroke);
+  button.style.setProperty('--precompute-text', colors.buttonText || colors.precomputedStroke || colors.hoverStroke);
+  button.style.setProperty('--precompute-ring', 'rgba(255, 255, 255, 0.42)');
 }
 
 function updateBreadcrumb() {
