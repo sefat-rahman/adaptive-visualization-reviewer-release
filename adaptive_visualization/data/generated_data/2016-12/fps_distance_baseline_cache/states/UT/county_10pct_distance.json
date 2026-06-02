@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "zoom": "state",
+  "state": "UT",
+  "county": "",
+  "topology_region": "UT",
+  "source_signature": {
+    "rows": 132,
+    "first_id": "A-3511045",
+    "last_id": "A-3511764"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_min_pixel_distance": 35.608297831048375,
+  "source_min_pixel_distance": 35.608297831048375,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 132,
+  "n_points": 16,
+  "equivalent_percentage": 12.121212121212121,
+  "sample_path": "states/UT/samples/county_10pct_distance.csv",
+  "reduced_h0_path": "states/UT/county_10pct_distance_h0.csv",
+  "reduced_h1_path": "states/UT/county_10pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.046445573804500026,
+    "bottleneck_h1": 0.050393828165056526,
+    "wasserstein_h0": 0.4088128884666221,
+    "wasserstein_h1": 0.0981974631213293
+  },
+  "updated_at": "2026-05-29T05:08:49.165970+00:00"
+}

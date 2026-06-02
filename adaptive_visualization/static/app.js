@@ -3,32 +3,31 @@
 const APP_CONFIG = window.APP_CONFIG || {};
 const STATE_META = APP_CONFIG.stateMeta || {};
 const FPS_THRESHOLD_COVERAGE = APP_CONFIG.fpsThresholdCoverage || {};
+const STATIC_SNAPSHOT_COVERAGE = APP_CONFIG.staticSnapshotCoverage || null;
+const STATIC_DEMO_MODE = Boolean(APP_CONFIG.staticDemo || STATIC_SNAPSHOT_COVERAGE);
 const STATE_ROWS = STATE_META.rows || [];
 const STATE_FIPS_TO_CODE = STATE_META.fipsToCode || {};
 const STATE_CODE_TO_NAME = STATE_META.codeToName || {};
 const STATE_CODE_TO_FIPS = Object.fromEntries(STATE_ROWS.map((row) => [row.code, row.fips]));
 const AVAILABLE_STATES = new Set(STATE_ROWS.map((row) => row.code));
-const PRECOMPUTED_FPS_STATES = new Set(FPS_THRESHOLD_COVERAGE.states || []);
-const PRECOMPUTED_FPS_COUNTIES = Object.fromEntries(
-  Object.entries(FPS_THRESHOLD_COVERAGE.counties || {}).map(([state, counties]) => [
-    state,
-    new Set(counties || []),
-  ])
-);
 const RETAIN_PERCENTAGES = [1, 3, 4, 5, 10, 15, 20, 25, 26, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100];
 const COUNTRY_DISTANCE_BASELINE = 'country_1pct_distance';
-const COUNTY_DISTANCE_BASELINE = 'county_5pct_distance';
 const COUNTY_10_DISTANCE_BASELINE = 'county_10pct_distance';
 const COUNTY_20_DISTANCE_BASELINE = 'county_20pct_distance';
+const DEFAULT_TOPOLOGY_BASELINE = COUNTY_20_DISTANCE_BASELINE;
 const DISTANCE_BASELINE_LABELS = {
   [COUNTRY_DISTANCE_BASELINE]: 'Country 1% distance',
-  [COUNTY_DISTANCE_BASELINE]: 'County 5% distance',
   [COUNTY_10_DISTANCE_BASELINE]: 'County 10% distance',
   [COUNTY_20_DISTANCE_BASELINE]: 'County 20% distance',
 };
-const COUNTRY_TOPOLOGY_BASELINE_PERCENTAGES = [1, 2, 3, 4, 5, COUNTRY_DISTANCE_BASELINE, COUNTY_DISTANCE_BASELINE, COUNTY_10_DISTANCE_BASELINE, COUNTY_20_DISTANCE_BASELINE];
-const STATE_TOPOLOGY_BASELINE_PERCENTAGES = [1, 5, 10, COUNTRY_DISTANCE_BASELINE, COUNTY_DISTANCE_BASELINE, COUNTY_10_DISTANCE_BASELINE, COUNTY_20_DISTANCE_BASELINE];
-const COUNTY_TOPOLOGY_BASELINE_PERCENTAGES = [5, 10, 15, 20, 25, 30, COUNTRY_DISTANCE_BASELINE, COUNTY_DISTANCE_BASELINE, COUNTY_10_DISTANCE_BASELINE, COUNTY_20_DISTANCE_BASELINE];
+const DISTANCE_TOPOLOGY_BASELINE_OPTIONS = [
+  COUNTRY_DISTANCE_BASELINE,
+  COUNTY_10_DISTANCE_BASELINE,
+  COUNTY_20_DISTANCE_BASELINE,
+];
+const COUNTRY_TOPOLOGY_BASELINE_PERCENTAGES = DISTANCE_TOPOLOGY_BASELINE_OPTIONS;
+const STATE_TOPOLOGY_BASELINE_PERCENTAGES = DISTANCE_TOPOLOGY_BASELINE_OPTIONS;
+const COUNTY_TOPOLOGY_BASELINE_PERCENTAGES = DISTANCE_TOPOLOGY_BASELINE_OPTIONS;
 
 const COUNTRY_EXTENT = ol.proj.transformExtent(
   [-125, 24, -66, 49.8],
@@ -76,6 +75,12 @@ const REGION_COLORS = {
     hoverStroke: '#743724',
   },
 };
+const METHOD_LABELS = {
+  all: 'All Points',
+  pixel: 'Pixel Occupancy',
+  random: 'Random',
+  fps_threshold: 'FPS threshold',
+};
 
 const appState = {
   zoom: 'country',
@@ -85,7 +90,7 @@ const appState = {
   analysisProperty: 'statistical',
   retainPercentage: 50,
   errorThreshold: 0.5,
-  topologyBaselinePercentage: 5,
+  topologyBaselinePercentage: DEFAULT_TOPOLOGY_BASELINE,
   showPrecomputedHighlights: true,
 };
 
@@ -181,7 +186,7 @@ function coerceTopologyBaselinePercentage(value, zoom = appState.zoom) {
   if (Number.isFinite(numericValue) && options.includes(numericValue)) {
     return numericValue;
   }
-  return options.includes(5) ? 5 : options[0];
+  return options.includes(DEFAULT_TOPOLOGY_BASELINE) ? DEFAULT_TOPOLOGY_BASELINE : options[0];
 }
 
 function topologyBaselineLabel(value) {
@@ -189,6 +194,57 @@ function topologyBaselineLabel(value) {
     return DISTANCE_BASELINE_LABELS[value];
   }
   return `${value}%`;
+}
+
+function methodCoverage(method = appState.method) {
+  const staticMethods = STATIC_SNAPSHOT_COVERAGE?.methods || {};
+  if (staticMethods[method]) {
+    return staticMethods[method];
+  }
+  if (method === 'fps_threshold') {
+    return FPS_THRESHOLD_COVERAGE;
+  }
+  return { states: [], counties: {} };
+}
+
+function methodHasPrecomputedCoverage(method = appState.method) {
+  const coverage = methodCoverage(method);
+  if (method === 'random') {
+    const retainPercentages = coverage.retainPercentages || [];
+    if (retainPercentages.length && !retainPercentages.includes(Number(appState.retainPercentage))) {
+      return false;
+    }
+  }
+  const hasStates = Array.isArray(coverage.states) && coverage.states.length > 0;
+  const hasCounties = Object.values(coverage.counties || {})
+    .some((counties) => Array.isArray(counties) && counties.length > 0);
+  return hasStates || hasCounties;
+}
+
+function isStatePrecomputedForMethod(stateCode, method = appState.method) {
+  if (!stateCode) {
+    return false;
+  }
+  return (methodCoverage(method).states || []).includes(stateCode);
+}
+
+function isCountyPrecomputedForMethod(stateCode, countyName, method = appState.method) {
+  if (!stateCode || !countyName) {
+    return false;
+  }
+  return ((methodCoverage(method).counties || {})[stateCode] || []).includes(countyName);
+}
+
+function randomPrecomputeNote() {
+  if (!STATIC_DEMO_MODE || appState.method !== 'random') {
+    return '';
+  }
+  const percentages = methodCoverage('random').retainPercentages || [];
+  if (!percentages.length) {
+    return '';
+  }
+  const label = percentages.map((percentage) => `${percentage}%`).join(', ');
+  return ` Precomputed random retains: ${label}.`;
 }
 
 function syncTopologyBaselineOptions(zoom = appState.zoom) {
@@ -544,29 +600,32 @@ function getPointStyle(zoom, method) {
 }
 
 function getStateBoundaryStyle(feature) {
-  return showFpsPrecomputeHighlights() && feature.get('fpsThresholdPrecomputed')
+  return showPrecomputeHighlights() && isStatePrecomputedForMethod(feature.get('stateCode'))
     ? getRegionStyle('precomputed-state', appState.method)
     : getRegionStyle('state-boundary', appState.method);
 }
 
 function getStateLabelStyle(feature) {
-  const isPrecomputed = showFpsPrecomputeHighlights() && feature.get('fpsThresholdPrecomputed');
+  const isPrecomputed = showPrecomputeHighlights()
+    && isStatePrecomputedForMethod(feature.get('stateCode'));
+  const colors = REGION_COLORS[appState.method] || REGION_COLORS.default;
   return createTextStyle(feature.get('label'), {
     font: `${isPrecomputed ? '800' : '600'} 11px "Segoe UI", sans-serif`,
-    fill: isPrecomputed ? '#1b5e20' : '#243b53',
+    fill: isPrecomputed ? colors.hoverStroke : '#243b53',
     stroke: '#ffffff',
     strokeWidth: isPrecomputed ? 5.2 : 4.5,
   });
 }
 
 function getCountyBoundaryStyle(feature) {
-  return showFpsPrecomputeHighlights() && feature.get('fpsThresholdPrecomputed')
+  return showPrecomputeHighlights()
+    && isCountyPrecomputedForMethod(appState.state, feature.get('county'))
     ? getRegionStyle('precomputed-county', appState.method)
     : getRegionStyle('inner-boundary', appState.method);
 }
 
-function showFpsPrecomputeHighlights() {
-  return appState.method === 'fps_threshold'
+function showPrecomputeHighlights() {
+  return methodHasPrecomputedCoverage(appState.method)
     && appState.showPrecomputedHighlights
     && ['country', 'state'].includes(appState.zoom);
 }
@@ -588,8 +647,8 @@ function getRegionStyle(role, method) {
 
   if (role === 'precomputed-state') {
     regionStyleCache[styleKey] = new ol.style.Style({
-      fill: new ol.style.Fill({ color: 'rgba(210, 234, 214, 0.30)' }),
-      stroke: new ol.style.Stroke({ color: '#1b5e20', width: 2.25 }),
+      fill: new ol.style.Fill({ color: colors.hoverFill }),
+      stroke: new ol.style.Stroke({ color: colors.hoverStroke, width: 3 }),
     });
     return regionStyleCache[styleKey];
   }
@@ -597,7 +656,7 @@ function getRegionStyle(role, method) {
   if (role === 'precomputed-county') {
     regionStyleCache[styleKey] = new ol.style.Style({
       fill: new ol.style.Fill({ color: 'rgba(0, 0, 0, 0)' }),
-      stroke: new ol.style.Stroke({ color: '#1b5e20', width: 1.85 }),
+      stroke: new ol.style.Stroke({ color: colors.hoverStroke, width: 2.45 }),
     });
     return regionStyleCache[styleKey];
   }
@@ -679,7 +738,6 @@ async function loadCountryBoundaries() {
     feature.set('stateCode', code);
     feature.set('stateName', STATE_CODE_TO_NAME[code] || code);
     feature.set('kind', 'state-boundary');
-    feature.set('fpsThresholdPrecomputed', PRECOMPUTED_FPS_STATES.has(code));
   });
 
   sources.nation.clear();
@@ -731,10 +789,8 @@ function prepareStateCountyBoundaries() {
   }
 
   const features = countyFeaturesByState.get(stateFips) || [];
-  const precomputedCounties = PRECOMPUTED_FPS_COUNTIES[appState.state] || new Set();
   sources.stateCountyBoundaries.addFeatures(features.map((feature) => {
     const clone = feature.clone();
-    clone.set('fpsThresholdPrecomputed', precomputedCounties.has(clone.get('county')));
     return clone;
   }));
 }
@@ -816,7 +872,8 @@ function updatePrecomputeToggle() {
     return;
   }
 
-  const visible = appState.method === 'fps_threshold' && ['country', 'state'].includes(appState.zoom);
+  const visible = methodHasPrecomputedCoverage(appState.method)
+    && ['country', 'state'].includes(appState.zoom);
   button.hidden = !visible;
   if (!visible) {
     return;
@@ -824,7 +881,9 @@ function updatePrecomputeToggle() {
 
   const scopeLabel = appState.zoom === 'country' ? 'states' : 'counties';
   const actionLabel = appState.showPrecomputedHighlights ? 'Hide' : 'Show';
+  const methodLabel = METHOD_LABELS[appState.method] || appState.method;
   button.textContent = `${actionLabel} precomputed ${scopeLabel}`;
+  button.title = `${methodLabel} precomputed ${scopeLabel} bundled in this viewer.`;
   button.setAttribute('aria-pressed', String(appState.showPrecomputedHighlights));
 }
 
@@ -903,7 +962,7 @@ function updateBreadcrumb() {
     : appState.zoom === 'state'
       ? stateCaption
       : countyCaption;
-  document.getElementById('view-caption').textContent = caption;
+  document.getElementById('view-caption').textContent = caption + randomPrecomputeNote();
 }
 
 async function loadPoints() {
@@ -1827,7 +1886,6 @@ function makeStateLabelFeature(feature) {
     geometry: new ol.geom.Point(center),
     kind: 'state-label',
     stateCode: feature.get('stateCode'),
-    fpsThresholdPrecomputed: feature.get('fpsThresholdPrecomputed'),
     label: feature.get('stateCode'),
   });
 }

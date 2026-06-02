@@ -38,10 +38,16 @@ VIEWPORT_KEYS = {
 
 RANDOM_RETAIN_PERCENTAGES = [3, 4, 26, 50]
 FPS_THRESHOLDS = [0.25, 0.50, 0.75]
+DEFAULT_FPS_BASELINE = "county_20pct_distance"
+FPS_DISTANCE_BASELINES = [
+    "country_1pct_distance",
+    "county_10pct_distance",
+    "county_20pct_distance",
+]
 FPS_BASELINES_BY_ZOOM = {
-    "country": ["5", "country_1pct_distance"],
-    "state": ["5", "country_1pct_distance"],
-    "county": ["5", "county_20pct_distance"],
+    "country": FPS_DISTANCE_BASELINES,
+    "state": FPS_DISTANCE_BASELINES,
+    "county": FPS_DISTANCE_BASELINES,
 }
 ANALYSIS_PROPERTIES = ["statistical", "density", "topological"]
 
@@ -58,6 +64,11 @@ STATIC_API_JS = r"""
     'padding_right_px',
     'padding_bottom_px',
     'padding_left_px',
+  ]);
+  const FPS_BASELINES = new Set([
+    'country_1pct_distance',
+    'county_10pct_distance',
+    'county_20pct_distance',
   ]);
 
   function jsonResponse(payload, status = 200) {
@@ -77,6 +88,10 @@ STATIC_API_JS = r"""
   function normalizeThreshold(value) {
     const numberValue = Number(value);
     return Number.isFinite(numberValue) ? numberValue.toFixed(2) : '0.50';
+  }
+
+  function normalizeBaseline(value) {
+    return FPS_BASELINES.has(value) ? value : 'county_20pct_distance';
   }
 
   function normalizeApiKey(url) {
@@ -121,7 +136,7 @@ STATIC_API_JS = r"""
       }
       if (method === 'fps_threshold') {
         pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
-        pairs.push(['topology_baseline_pct', params.get('topology_baseline_pct') || '5']);
+        pairs.push(['topology_baseline_pct', normalizeBaseline(params.get('topology_baseline_pct'))]);
       }
       return buildKey(pathname, pairs);
     }
@@ -139,7 +154,7 @@ STATIC_API_JS = r"""
       }
       if (method === 'fps_threshold') {
         pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
-        pairs.push(['topology_baseline_pct', params.get('topology_baseline_pct') || '5']);
+        pairs.push(['topology_baseline_pct', normalizeBaseline(params.get('topology_baseline_pct'))]);
       }
       return buildKey(pathname, pairs);
     }
@@ -215,6 +230,7 @@ def main() -> None:
 
     client = app.test_client()
     scopes = build_static_scopes()
+    static_snapshot_coverage = build_static_snapshot_coverage(scopes)
     source_data_label = str(data_dir)
     try:
         source_data_label = data_dir.relative_to(MODULE_DIR).as_posix()
@@ -223,6 +239,7 @@ def main() -> None:
     manifest: dict[str, Any] = {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "source_data": source_data_label,
+        "static_snapshot_coverage": static_snapshot_coverage,
         "routes": {},
     }
 
@@ -291,7 +308,7 @@ def main() -> None:
     shutil.copy2(MODULE_DIR / "static" / "style.css", output_dir / "static" / "style.css")
     (output_dir / "static" / "static-api.js").write_text(STATIC_API_JS.strip() + "\n", encoding="utf-8")
     (output_dir / ".nojekyll").write_text("", encoding="utf-8")
-    write_static_index(output_dir, meta_payload)
+    write_static_index(output_dir, meta_payload, static_snapshot_coverage)
     write_static_readme(output_dir, manifest)
 
     print(f"Static GitHub Pages export written to {output_dir}")
@@ -313,6 +330,37 @@ def build_static_scopes() -> list[dict[str, str]]:
             for county in counties
         )
     return scopes
+
+
+def build_static_snapshot_coverage(scopes: list[dict[str, str]]) -> dict[str, Any]:
+    """Describe which map scopes exist in the static GitHub Pages export."""
+    states = sorted(
+        scope["state"]
+        for scope in scopes
+        if scope["zoom"] == "state" and scope["state"]
+    )
+    county_map: dict[str, list[str]] = {}
+    for scope in scopes:
+        if scope["zoom"] != "county" or not scope["state"] or not scope["county"]:
+            continue
+        county_map.setdefault(scope["state"], []).append(scope["county"])
+    county_map = {
+        state: sorted(counties)
+        for state, counties in sorted(county_map.items())
+    }
+
+    methods: dict[str, Any] = {}
+    for method in ["all", "pixel", "fps_threshold"]:
+        methods[method] = {
+            "states": states,
+            "counties": county_map,
+        }
+    methods["random"] = {
+        "states": states,
+        "counties": county_map,
+        "retainPercentages": RANDOM_RETAIN_PERCENTAGES,
+    }
+    return {"methods": methods}
 
 
 def add_scope_snapshots(add_snapshot, scope: dict[str, str]) -> None:
@@ -393,7 +441,7 @@ def normalize_api_key(path: str, params: dict[str, str]) -> str:
             relevant["retain_pct"] = params.get("retain_pct", "50")
         if method == "fps_threshold":
             relevant["error_threshold"] = f"{float(params.get('error_threshold', 0.5)):.2f}"
-            relevant["topology_baseline_pct"] = params.get("topology_baseline_pct", "5")
+            relevant["topology_baseline_pct"] = params.get("topology_baseline_pct", DEFAULT_FPS_BASELINE)
         return with_query(path, relevant)
     if path == "/api/analysis":
         method = params.get("method", "pixel")
@@ -408,7 +456,7 @@ def normalize_api_key(path: str, params: dict[str, str]) -> str:
             relevant["retain_pct"] = params.get("retain_pct", "50")
         if method == "fps_threshold":
             relevant["error_threshold"] = f"{float(params.get('error_threshold', 0.5)):.2f}"
-            relevant["topology_baseline_pct"] = params.get("topology_baseline_pct", "5")
+            relevant["topology_baseline_pct"] = params.get("topology_baseline_pct", DEFAULT_FPS_BASELINE)
         return with_query(path, relevant)
     return path
 
@@ -434,15 +482,26 @@ def sanitize_payload(value: Any, *, data_dir: Path) -> Any:
     return value
 
 
-def write_static_index(output_dir: Path, meta_payload: dict[str, Any]) -> None:
+def write_static_index(
+    output_dir: Path,
+    meta_payload: dict[str, Any],
+    static_snapshot_coverage: dict[str, Any],
+) -> None:
+    asset_version = int(
+        max(
+            (MODULE_DIR / "static" / "app.js").stat().st_mtime,
+            (MODULE_DIR / "static" / "style.css").stat().st_mtime,
+            Path(__file__).stat().st_mtime,
+        )
+    )
     template = (MODULE_DIR / "templates" / "index.html").read_text(encoding="utf-8")
     html = template.replace(
         "{{ url_for('static', filename='style.css') }}?v={{ style_css_version }}",
-        "static/style.css",
+        f"static/style.css?v={asset_version}",
     )
     html = html.replace(
         "{{ url_for('static', filename='app.js') }}?v={{ app_js_version }}",
-        "static/app.js",
+        f"static/app.js?v={asset_version}",
     )
     html = html.replace(
         "OpenLayers research viewer",
@@ -451,6 +510,8 @@ def write_static_index(output_dir: Path, meta_payload: dict[str, Any]) -> None:
     app_config = {
         "stateMeta": meta_payload["state_meta"],
         "fpsThresholdCoverage": meta_payload["fps_threshold_coverage"],
+        "staticDemo": True,
+        "staticSnapshotCoverage": static_snapshot_coverage,
     }
     config_script = (
         "<script>\n"
@@ -466,21 +527,29 @@ def write_static_index(output_dir: Path, meta_payload: dict[str, Any]) -> None:
         flags=re.DOTALL,
     )
     html = html.replace(
-        '<script src="static/app.js"></script>',
-        '<script src="static/static-api.js"></script>\n  <script src="static/app.js"></script>',
+        f'<script src="static/app.js?v={asset_version}"></script>',
+        f'<script src="static/static-api.js?v={asset_version}"></script>\n  <script src="static/app.js?v={asset_version}"></script>',
     )
     (output_dir / "index.html").write_text(html, encoding="utf-8")
 
 
 def write_static_readme(output_dir: Path, manifest: dict[str, Any]) -> None:
+    random_percentages = (
+        manifest.get("static_snapshot_coverage", {})
+        .get("methods", {})
+        .get("random", {})
+        .get("retainPercentages", [])
+    )
+    random_percentages_label = ", ".join(f"{percentage}%" for percentage in random_percentages)
     readme = f"""# Adaptive Visualization Static Demo
 
-This folder is a GitHub Pages export of selected precomputed dashboard states.
+This folder is a GitHub Pages export of the bundled precomputed dashboard views.
 It does not run Flask or Python in the browser.
 
 - Open `index.html` through GitHub Pages.
 - Snapshot routes: `{manifest['route_count']}`
 - Generated: `{manifest['generated_at']}`
+- Random snapshots: `{random_percentages_label}`
 
 If a state, county, threshold, or analysis is not bundled here, clone the
 repository and run `python run_dashboard.py` from the parent

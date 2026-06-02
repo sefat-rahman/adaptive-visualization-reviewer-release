@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "zoom": "state",
+  "state": "AZ",
+  "county": "",
+  "topology_region": "AZ",
+  "source_signature": {
+    "rows": 429,
+    "first_id": "A-3511044",
+    "last_id": "A-3511765"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_min_pixel_distance": 35.608297831048375,
+  "source_min_pixel_distance": 35.608297831048375,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 429,
+  "n_points": 35,
+  "equivalent_percentage": 8.158508158508159,
+  "sample_path": "states/AZ/samples/county_10pct_distance.csv",
+  "reduced_h0_path": "states/AZ/county_10pct_distance_h0.csv",
+  "reduced_h1_path": "states/AZ/county_10pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.07179521344762604,
+    "bottleneck_h1": 0.0674589619255758,
+    "wasserstein_h0": 1.3377846784137608,
+    "wasserstein_h1": 0.3916580939113184
+  },
+  "updated_at": "2026-05-29T05:02:27.098815+00:00"
+}

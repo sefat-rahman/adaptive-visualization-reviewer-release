@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "zoom": "county",
+  "state": "IL",
+  "county": "Cook",
+  "topology_region": "IL::Cook",
+  "source_signature": {
+    "rows": 821,
+    "first_id": "A-167322",
+    "last_id": "A-3455505"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_min_pixel_distance": 35.608297831048375,
+  "source_min_pixel_distance": 35.608297831048375,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 821,
+  "n_points": 93,
+  "equivalent_percentage": 11.327649208282581,
+  "sample_path": "counties/IL/Cook/samples/county_10pct_distance.csv",
+  "reduced_h0_path": "counties/IL/Cook/county_10pct_distance_h0.csv",
+  "reduced_h1_path": "counties/IL/Cook/county_10pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.0007762737285003471,
+    "bottleneck_h1": 0.0006973016112248086,
+    "wasserstein_h0": 0.02400300873475528,
+    "wasserstein_h1": 0.010684427580411065
+  },
+  "updated_at": "2026-05-29T05:11:08.874543+00:00"
+}

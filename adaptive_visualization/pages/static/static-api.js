@@ -11,6 +11,11 @@
     'padding_bottom_px',
     'padding_left_px',
   ]);
+  const FPS_BASELINES = new Set([
+    'country_1pct_distance',
+    'county_10pct_distance',
+    'county_20pct_distance',
+  ]);
 
   function jsonResponse(payload, status = 200) {
     return new Response(JSON.stringify(payload), {
@@ -29,6 +34,10 @@
   function normalizeThreshold(value) {
     const numberValue = Number(value);
     return Number.isFinite(numberValue) ? numberValue.toFixed(2) : '0.50';
+  }
+
+  function normalizeBaseline(value) {
+    return FPS_BASELINES.has(value) ? value : 'county_20pct_distance';
   }
 
   function normalizeApiKey(url) {
@@ -71,10 +80,10 @@
       if (method === 'random') {
         pairs.push(['retain_pct', params.get('retain_pct') || '50']);
       }
-      if (method === 'fps_threshold') {
-        pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
-        pairs.push(['topology_baseline_pct', params.get('topology_baseline_pct') || '5']);
-      }
+    if (method === 'fps_threshold') {
+      pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
+      pairs.push(['topology_baseline_pct', normalizeBaseline(params.get('topology_baseline_pct'))]);
+    }
       return buildKey(pathname, pairs);
     }
     if (pathname === '/api/analysis') {
@@ -89,10 +98,10 @@
       if (method === 'random') {
         pairs.push(['retain_pct', params.get('retain_pct') || '50']);
       }
-      if (method === 'fps_threshold') {
-        pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
-        pairs.push(['topology_baseline_pct', params.get('topology_baseline_pct') || '5']);
-      }
+    if (method === 'fps_threshold') {
+      pairs.push(['error_threshold', normalizeThreshold(params.get('error_threshold'))]);
+      pairs.push(['topology_baseline_pct', normalizeBaseline(params.get('topology_baseline_pct'))]);
+    }
       return buildKey(pathname, pairs);
     }
     return pathname;

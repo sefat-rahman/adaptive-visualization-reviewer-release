@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "county",
+  "state": "FL",
+  "county": "Hillsborough",
+  "topology_region": "FL::Hillsborough",
+  "source_signature": {
+    "rows": 639,
+    "first_id": "A-116119",
+    "last_id": "A-3455444"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 639,
+  "n_points": 177,
+  "equivalent_percentage": 27.699530516431924,
+  "sample_path": "counties/FL/Hillsborough/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "counties/FL/Hillsborough/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "counties/FL/Hillsborough/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.0002584415902506065,
+    "bottleneck_h1": 0.00010007456781039598,
+    "wasserstein_h0": 0.0019871133041276224,
+    "wasserstein_h1": 0.0011883364632076147
+  },
+  "updated_at": "2026-05-29T05:10:07.109880+00:00"
+}

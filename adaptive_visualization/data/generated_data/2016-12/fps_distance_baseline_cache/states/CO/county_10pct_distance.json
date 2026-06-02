@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "county_10pct_distance",
+  "baseline_label": "County 10% distance",
+  "zoom": "state",
+  "state": "CO",
+  "county": "",
+  "topology_region": "CO",
+  "source_signature": {
+    "rows": 199,
+    "first_id": "A-3424838",
+    "last_id": "A-3511767"
+  },
+  "baseline_source_signature": {
+    "rows": 716,
+    "first_id": "A-3445392",
+    "last_id": "A-3455477"
+  },
+  "baseline_source_zoom": "county",
+  "baseline_source_state": "NC",
+  "baseline_source_county": "Mecklenburg",
+  "baseline_source_percentage": 10,
+  "baseline_source_min_pixel_distance": 35.608297831048375,
+  "source_min_pixel_distance": 35.608297831048375,
+  "country_min_pixel_distance": null,
+  "country_min_distance": null,
+  "applied_min_pixel_distance": 35.608297831048375,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 199,
+  "n_points": 23,
+  "equivalent_percentage": 11.557788944723619,
+  "sample_path": "states/CO/samples/county_10pct_distance.csv",
+  "reduced_h0_path": "states/CO/county_10pct_distance_h0.csv",
+  "reduced_h1_path": "states/CO/county_10pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 0.04754856299200075,
+    "bottleneck_h1": 0.031077774532537003,
+    "wasserstein_h0": 0.44657525009712296,
+    "wasserstein_h1": 0.10572694020694559
+  },
+  "updated_at": "2026-05-29T05:02:39.533252+00:00"
+}

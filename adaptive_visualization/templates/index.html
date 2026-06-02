@@ -70,11 +70,9 @@
       <label>
         <span>Baseline</span>
         <select id="topology-baseline-select">
-          <option value="1">1%</option>
-          <option value="2">2%</option>
-          <option value="3">3%</option>
-          <option value="4">4%</option>
-          <option value="5" selected>5%</option>
+          <option value="country_1pct_distance">Country 1% distance</option>
+          <option value="county_10pct_distance">County 10% distance</option>
+          <option value="county_20pct_distance" selected>County 20% distance</option>
         </select>
       </label>
 
@@ -145,6 +143,7 @@
     window.APP_CONFIG = {
       stateMeta: {{ state_meta|tojson }},
       fpsThresholdCoverage: {{ fps_threshold_coverage|tojson }},
+      staticSnapshotCoverage: {{ static_snapshot_coverage|tojson }},
     };
   </script>
   <script src="{{ url_for('static', filename='app.js') }}?v={{ app_js_version }}"></script>

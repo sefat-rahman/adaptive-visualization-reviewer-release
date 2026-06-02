@@ -1,0 +1,42 @@
+{
+  "cache_version": "fps_distance_baseline_multi_pixel_v1",
+  "baseline_key": "country_1pct_distance",
+  "baseline_label": "Country 1% distance",
+  "zoom": "county",
+  "state": "VA",
+  "county": "Loudoun",
+  "topology_region": "VA::Loudoun",
+  "source_signature": {
+    "rows": 266,
+    "first_id": "A-228716",
+    "last_id": "A-3454751"
+  },
+  "baseline_source_signature": {
+    "rows": 59619,
+    "first_id": "A-5118",
+    "last_id": "A-3529092"
+  },
+  "baseline_source_zoom": "country",
+  "baseline_source_state": "",
+  "baseline_source_county": "",
+  "baseline_source_percentage": 1,
+  "baseline_source_min_pixel_distance": 11.228975669938238,
+  "source_min_pixel_distance": 11.228975669938238,
+  "country_min_pixel_distance": 11.228975669938238,
+  "country_min_distance": 11.228975669938238,
+  "applied_min_pixel_distance": 11.228975669938238,
+  "coordinate_space": "OpenLayers pixel",
+  "n_source_points": 266,
+  "n_points": 125,
+  "equivalent_percentage": 46.99248120300752,
+  "sample_path": "counties/VA/Loudoun/samples/country_1pct_distance.csv",
+  "reduced_h0_path": "counties/VA/Loudoun/country_1pct_distance_h0.csv",
+  "reduced_h1_path": "counties/VA/Loudoun/country_1pct_distance_h1.csv",
+  "metrics": {
+    "bottleneck_h0": 9.61824150002664e-05,
+    "bottleneck_h1": 0.00014393216770712959,
+    "wasserstein_h0": 0.001120343765626601,
+    "wasserstein_h1": 0.0007946948488502351
+  },
+  "updated_at": "2026-05-29T05:12:53.435121+00:00"
+}

@@ -31,6 +31,7 @@ _repository: AdaptiveDataRepository | None = None
 _boundaries = BoundaryService(CACHE_DIR)
 _fps_generation_jobs: dict[str, dict] = {}
 _fps_generation_lock = Lock()
+RANDOM_PRECOMPUTED_RETAIN_PERCENTAGES = [3, 4, 26, 50]
 
 
 def configure(data_dir: str | Path) -> None:
@@ -136,16 +137,41 @@ def _fps_threshold_missing_payload(
     }
 
 
+def _method_precomputed_coverage(repo: AdaptiveDataRepository) -> dict:
+    """Expose map scopes with saved reviewer/demo snapshots by method."""
+    fps_coverage = repo.get_fps_threshold_coverage()
+    states = sorted(fps_coverage.get("states", []))
+    counties = {
+        state: sorted(county_list or [])
+        for state, county_list in sorted((fps_coverage.get("counties") or {}).items())
+    }
+    methods = {
+        method: {
+            "states": states,
+            "counties": counties,
+        }
+        for method in ["all", "pixel", "fps_threshold"]
+    }
+    methods["random"] = {
+        "states": states,
+        "counties": counties,
+        "retainPercentages": RANDOM_PRECOMPUTED_RETAIN_PERCENTAGES,
+    }
+    return {"methods": methods}
+
+
 @app.route("/")
 def index():
     repo = _repo()
     state_meta = build_state_payload(repo.get_available_states())
+    method_precomputed_coverage = _method_precomputed_coverage(repo)
     return render_template(
         "index.html",
         app_js_version=int((STATIC_DIR / "app.js").stat().st_mtime),
         style_css_version=int((STATIC_DIR / "style.css").stat().st_mtime),
         state_meta=state_meta,
         fps_threshold_coverage=repo.get_fps_threshold_coverage(),
+        static_snapshot_coverage=method_precomputed_coverage,
     )
 
 
@@ -157,6 +183,7 @@ def api_meta():
             "available_states": repo.get_available_states(),
             "state_meta": build_state_payload(repo.get_available_states()),
             "fps_threshold_coverage": repo.get_fps_threshold_coverage(),
+            "static_snapshot_coverage": _method_precomputed_coverage(repo),
         }
     )
 
