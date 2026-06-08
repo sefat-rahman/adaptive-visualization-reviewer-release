@@ -143,7 +143,7 @@ STATIC_API_JS = r"""
     if (pathname === '/api/analysis') {
       const method = params.get('method') || 'pixel';
       const pairs = [
-        ['property', params.get('property') || 'statistical'],
+        ['property', params.get('property') || 'topological'],
         ['zoom', params.get('zoom') || 'country'],
         ['method', method],
         ['state', params.get('state') || ''],

@@ -195,7 +195,7 @@ def api_data():
     method = request.args.get("method", "pixel")
     state = request.args.get("state", "")
     county = request.args.get("county", "")
-    analysis_property = request.args.get("analysis_property", "statistical")
+    analysis_property = request.args.get("analysis_property", "topological")
     retain_percentage = request.args.get("retain_pct", default=50, type=int)
     error_threshold = request.args.get("error_threshold", default=0.5, type=float)
     topology_baseline_percentage = request.args.get("topology_baseline_pct", default=None)
@@ -267,7 +267,7 @@ def api_county_labels():
 @app.route("/api/analysis")
 def api_analysis():
     repo = _repo()
-    analysis_property = request.args.get("property", "statistical")
+    analysis_property = request.args.get("property", "topological")
     zoom = request.args.get("zoom", "country")
     method = request.args.get("method", "pixel")
     state = request.args.get("state", "")

@@ -109,13 +109,18 @@ const METHOD_LABELS = {
   random: 'Random',
   fps_threshold: 'FPS threshold',
 };
+const ANALYSIS_LABELS = {
+  topological: 'Structural',
+  statistical: 'Statistical',
+  density: 'Distributional',
+};
 
 const appState = {
   zoom: 'country',
   state: null,
   county: null,
   method: 'pixel',
-  analysisProperty: 'statistical',
+  analysisProperty: 'topological',
   retainPercentage: 50,
   errorThreshold: 0.5,
   topologyBaselinePercentage: DEFAULT_TOPOLOGY_BASELINE,
@@ -222,6 +227,10 @@ function topologyBaselineLabel(value) {
     return DISTANCE_BASELINE_LABELS[value];
   }
   return `${value}%`;
+}
+
+function analysisLabel(value = appState.analysisProperty) {
+  return ANALYSIS_LABELS[value] || value;
 }
 
 function methodCoverage(method = appState.method) {
@@ -968,7 +977,7 @@ function updateBreadcrumb() {
 
   const stateName = STATE_CODE_TO_NAME[appState.state] || appState.state;
   const retainLabel = `${appState.retainPercentage}% retained`;
-  const thresholdLabel = `${appState.analysisProperty} <= ${appState.errorThreshold.toFixed(2)}, baseline ${topologyBaselineLabel(appState.topologyBaselinePercentage)}`;
+  const thresholdLabel = `${analysisLabel()} <= ${appState.errorThreshold.toFixed(2)}, baseline ${topologyBaselineLabel(appState.topologyBaselinePercentage)}`;
   const countryCaption = appState.method === 'all'
     ? 'Country view with state boundaries and all exact points.'
     : appState.method === 'pixel'
@@ -1137,14 +1146,14 @@ function renderAnalysisLoading() {
   const subtitle = document.getElementById('analysis-subtitle');
 
   if (appState.analysisProperty === 'topological') {
-    title.textContent = 'Topological Comparison';
-    subtitle.textContent = 'Computing persistence diagrams and topology distances...';
+    title.textContent = 'Structural Comparison';
+    subtitle.textContent = 'Computing persistence diagrams and structural distances...';
     content.innerHTML = `
       <div class="analysis-placeholder analysis-loading">
         <div class="analysis-spinner" aria-hidden="true"></div>
         <div class="analysis-loading-text">
-          <strong>Calculating topology...</strong>
-          <span>This can take a little longer than statistical or density analysis.</span>
+          <strong>Calculating structural descriptors...</strong>
+          <span>This can take a little longer than statistical or distributional analysis.</span>
         </div>
       </div>
     `;
@@ -1152,8 +1161,8 @@ function renderAnalysisLoading() {
   }
 
   title.textContent = appState.analysisProperty === 'density'
-    ? 'Density Comparison'
-    : 'Statistical Comparison';
+    ? 'Distributional Comparison'
+    : `${analysisLabel()} Comparison`;
   subtitle.textContent = 'Updating analysis...';
   content.innerHTML = '<div class="analysis-placeholder">Updating analysis...</div>';
 }
@@ -1472,13 +1481,13 @@ function renderAnalysis(payload) {
   }
 
   if (appState.analysisProperty === 'density') {
-    title.textContent = 'Density Comparison';
-    subtitle.textContent = 'Shared-grid densities for original and reduced points.' + countSuffix;
+    title.textContent = 'Distributional Comparison';
+    subtitle.textContent = 'Residual density grid: warm cells are underrepresented; cool cells are overrepresented.' + countSuffix;
     renderDensityAnalysis(content, payload);
     return;
   }
 
-  title.textContent = 'Topological Comparison';
+  title.textContent = 'Structural Comparison';
   const baselinePct = Number(payload.baseline_percentage);
   const currentPct = Number(payload.current_percentage);
   const payloadBaselineLabel = payload.baseline_label || (Number.isFinite(baselinePct) ? `${baselinePct}% FPS` : null);
@@ -1583,46 +1592,145 @@ function renderDensityAnalysis(container, payload) {
   container.innerHTML = `
     <div class="analysis-grid">
       <div id="density-figure" class="analysis-figure tall"></div>
-      <div class="analysis-metrics">
-        <div class="metric-pill">L2 Norm: ${formatNumber(payload.metrics.l2_norm)}</div>
-        <div class="metric-pill" style="margin-left:8px;">Linf Distance: ${formatNumber(payload.metrics.linf_distance)}</div>
-      </div>
+      <div class="analysis-metrics density-summary" id="density-summary"></div>
     </div>
   `;
+
+  const differenceDensity = numericGrid(payload.difference_density);
+  const latCenters = binCenters(payload.lat_edges);
+  const lngCenters = binCenters(payload.lng_edges);
+  const flatDifference = differenceDensity.flat().filter((value) => Number.isFinite(value));
+  const maxAbsDifference = Math.max(1e-12, ...flatDifference.map((value) => Math.abs(value)));
+  const l1Difference = flatDifference.reduce((sum, value) => sum + Math.abs(value), 0);
+  const densityOverlap = Math.max(0, Math.min(1, 1 - (l1Difference / 2)));
+  const positiveMass = flatDifference
+    .filter((value) => value > 0)
+    .reduce((sum, value) => sum + value, 0);
+  const negativeMass = Math.abs(flatDifference
+    .filter((value) => value < 0)
+    .reduce((sum, value) => sum + value, 0));
+  const materialThreshold = maxAbsDifference * 0.10;
+  const highChangeCells = flatDifference.filter((value) => Math.abs(value) >= materialThreshold).length;
+  const totalCells = Math.max(1, flatDifference.length);
 
   Plotly.newPlot(
     'density-figure',
     [
       {
-        z: payload.original_density,
+        z: differenceDensity,
+        x: lngCenters,
+        y: latCenters,
         type: 'heatmap',
-        colorscale: 'Blues',
-        xaxis: 'x',
-        yaxis: 'y',
-        coloraxis: 'coloraxis',
-      },
-      {
-        z: payload.reduced_density,
-        type: 'heatmap',
-        colorscale: 'Blues',
-        xaxis: 'x2',
-        yaxis: 'y2',
-        coloraxis: 'coloraxis',
+        zmin: -maxAbsDifference,
+        zmax: maxAbsDifference,
+        zmid: 0,
+        colorscale: [
+          [0, '#2f6f9f'],
+          [0.46, '#e8f1f6'],
+          [0.5, '#fbfbf8'],
+          [0.54, '#f6e8df'],
+          [1, '#b75d3a'],
+        ],
+        colorbar: {
+          title: { text: 'Original - displayed', side: 'right' },
+          thickness: 11,
+          len: 0.82,
+          outlinewidth: 0,
+        },
+        hovertemplate: [
+          'Longitude: %{x:.3f}',
+          'Latitude: %{y:.3f}',
+          'Residual: %{z:.4g}',
+          '<extra></extra>',
+        ].join('<br>'),
       },
     ],
     {
-      margin: { l: 40, r: 20, t: 26, b: 36 },
+      margin: { l: 58, r: 82, t: 58, b: 50 },
       paper_bgcolor: '#ffffff',
       plot_bgcolor: '#ffffff',
-      grid: { rows: 1, columns: 2, pattern: 'independent' },
+      xaxis: {
+        title: 'Longitude',
+        zeroline: false,
+        gridcolor: 'rgba(16, 42, 67, 0.08)',
+        tickfont: { size: 10 },
+      },
+      yaxis: {
+        title: 'Latitude',
+        zeroline: false,
+        gridcolor: 'rgba(16, 42, 67, 0.08)',
+        tickfont: { size: 10 },
+        scaleanchor: 'x',
+        scaleratio: 1,
+      },
       annotations: [
-        { text: 'Original Density', x: 0.22, y: 1.08, xref: 'paper', yref: 'paper', showarrow: false, font: { size: 13 } },
-        { text: 'Reduced Density', x: 0.78, y: 1.08, xref: 'paper', yref: 'paper', showarrow: false, font: { size: 13 } },
+        {
+          text: '<b>Density Residual</b>',
+          x: 0,
+          y: 1.14,
+          xref: 'paper',
+          yref: 'paper',
+          xanchor: 'left',
+          showarrow: false,
+          font: { size: 13, color: '#102a43' },
+        },
+        {
+          text: 'Warm = original has more density; cool = displayed has more density',
+          x: 0,
+          y: 1.06,
+          xref: 'paper',
+          yref: 'paper',
+          xanchor: 'left',
+          showarrow: false,
+          font: { size: 11, color: '#486581' },
+        },
       ],
-      coloraxis: { colorscale: 'Blues' },
     },
     { responsive: true, displaylogo: false }
   );
+
+  const overlapPct = densityOverlap * 100;
+  const highChangePct = (highChangeCells / totalCells) * 100;
+  document.getElementById('density-summary').innerHTML = `
+    <div class="density-summary-grid">
+      <div class="density-summary-card">
+        <span>Density Overlap</span>
+        <strong>${formatNumber(overlapPct)}%</strong>
+      </div>
+      <div class="density-summary-card">
+        <span>Largest Local Gap</span>
+        <strong>${formatNumber(maxAbsDifference)}</strong>
+      </div>
+      <div class="density-summary-card">
+        <span>Underrepresented Mass</span>
+        <strong>${formatNumber(positiveMass)}</strong>
+      </div>
+      <div class="density-summary-card">
+        <span>Overrepresented Mass</span>
+        <strong>${formatNumber(negativeMass)}</strong>
+      </div>
+    </div>
+    <div class="density-summary-caption">
+      <span><strong>L2 norm:</strong> ${formatNumber(payload.metrics?.l2_norm)}</span>
+      <span><strong>Linf distance:</strong> ${formatNumber(payload.metrics?.linf_distance)}</span>
+      <span><strong>High-change cells:</strong> ${highChangeCells} / ${totalCells} (${formatNumber(highChangePct)}%)</span>
+    </div>
+  `;
+}
+
+function numericGrid(grid) {
+  return (grid || []).map((row) => (row || []).map((value) => {
+    const numberValue = Number(value);
+    return Number.isFinite(numberValue) ? numberValue : 0;
+  }));
+}
+
+function binCenters(edges) {
+  const values = (edges || []).map((value) => Number(value)).filter((value) => Number.isFinite(value));
+  if (values.length < 2) {
+    return [];
+  }
+  return values.slice(0, -1).map((value, index) => (value + values[index + 1]) / 2);
 }
 
 function renderTopologicalAnalysis(container, payload) {
